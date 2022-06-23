@@ -1,11 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ExceptionStoreProcedure } from 'src/utils.common/utils.exception.common/utils.store-procedure-exception.common';
 import { StoreProcedureResult } from 'src/utils.common/utils.store-procedure-result.common/utils-store-procedure-result.common';
 import { Repository } from 'typeorm';
-import { Restaurant } from './restaurant.entity/restaurant.entity';
-import { StoreProcedureResultInterface } from 'src/utils.common/utils.store-procedure-result.common/utils.store-procedure-result.interface.common';
-import { ExceptionStoreProcedure } from 'src/utils.common/utils.exception.common/utils.store-procedure-exception.common';
 import { RestaurantDataModel } from './restaurant.entity/restaurant.data.model.entity';
+import { Restaurant } from './restaurant.entity/restaurant.entity';
 
 
 @Injectable()

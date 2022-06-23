@@ -10,10 +10,10 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { AuthModule } from "./auth/auth.module";
 
 import { BranchModule } from "./branch/branch.module";
-import { MobileModule } from "./mobile/mobile.module";
 import { RestaurantBrandModule } from "./restaurant-brand/restaurant-brand.module";
 import { RestaurantModule } from "./restaurant/restaurant.module";
 import { AuthenticationMiddleware } from "./utils.common/utils.middleware.common/utils.bearer-token.common";
+import { SupplierOverviewReportModule } from './supplier/supplier-overview-report/supplier-overview-report.module';
 
 @Module({
   imports: [
@@ -47,7 +47,7 @@ import { AuthenticationMiddleware } from "./utils.common/utils.middleware.common
     RestaurantModule,
     RestaurantBrandModule,
     BranchModule,
-    MobileModule,
+    SupplierOverviewReportModule,
   ],
   providers: [],
 })
