@@ -3,7 +3,4 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class SupplierOrderListReportService {
-    constructor(
-        @InjectRepository
-    )
 }
