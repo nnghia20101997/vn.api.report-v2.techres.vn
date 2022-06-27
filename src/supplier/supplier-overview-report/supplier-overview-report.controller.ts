@@ -12,7 +12,7 @@ import { Response } from "express";
 import { SupplierOverviewReportEntity } from "./supplier-overview-report.entity/supplier-overview-report.entity";
 import { SupplierOverviewReportResponse } from "./supplier-overview-report.response/supplier-overview-report.response";
 import { SupplierOverviewReportService } from "./supplier-overview-report.service";
-import { SupplierOverviewReportQueryDto } from "./supplier_overview-report.dto/supplier_overview-report.query.dto";
+import { SupplierOverviewReportQueryDto } from "./supplier-overview-report.dto/supplier-overview-report.query.dto";
 
 @Controller("api/supplier-overview-report")
 export class SupplierOverviewReportController {

@@ -24,11 +24,11 @@ import { SupplierOverviewReportModule } from './supplier/supplier-overview-repor
 
     TypeOrmModule.forRoot({
       type: "mysql",
-      host: "beta.database.techres.vn",
-      port: 3306,
-      username: "techres_beta",
-      password: "71dca359-0653-4843-bcdc-94e3e3d8f3",
-      database: "BETA_TECHRES",
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
       entities: ["dist/**/*.entity{.ts,.js}"],
       multipleStatements: true,
       dateStrings: true,
