@@ -22,6 +22,10 @@ const admin_top_ten_product_best_seller_detail_module_1 = require("./admin/admin
 const admin_gravity_product_best_seller_module_1 = require("./admin/admin-gravity-product-best-seller/admin-gravity-product-best-seller.module");
 const admin_total_revenue_products_module_1 = require("./admin/admin-total-revenue-products/admin-total-revenue-products.module");
 const admin_advertising_revenue_module_1 = require("./admin/admin-advertising-revenue/admin-advertising-revenue.module");
+const admin_branch_report_module_1 = require("./admin/admin-branch-report/admin-branch-report.module");
+const admin_top_best_saler_report_module_1 = require("./admin/admin-top-best-saler-report/admin-top-best-saler-report.module");
+const admin_saler_detail_report_module_1 = require("./admin/admin-saler-detail-report/admin-saler-detail-report.module");
+const admin_best_saler_gravity_report_module_1 = require("./admin/admin-best-saler-gravity-report/admin-best-saler-gravity-report.module");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
@@ -51,13 +55,17 @@ AppModule = __decorate([
             auth_module_1.AuthModule,
             restaurant_module_1.RestaurantModule,
             restaurant_brand_module_1.RestaurantBrandModule,
-            branch_module_1.BranchModule,
             supplier_overview_report_module_1.SupplierOverviewReportModule,
             admin_advertising_revenue_module_1.AdminAdvertisingRevenueModule,
             admin_customer_aloline_report_module_1.AdminCustomerAlolineReportModule,
             admin_top_ten_product_best_seller_detail_module_1.AdminTopTenProductBestSellerDetailModule,
             admin_gravity_product_best_seller_module_1.AdminGravityProductBestSellerModule,
             admin_total_revenue_products_module_1.AdminTotalRevenueProductsModule,
+            branch_module_1.BranchModule,
+            admin_branch_report_module_1.AdminBranchReportModule,
+            admin_top_best_saler_report_module_1.AdminTopBestSalerReportModule,
+            admin_saler_detail_report_module_1.AdminSalerDetailReportModule,
+            admin_best_saler_gravity_report_module_1.AdminBestSalerGravityReportModule,
         ],
         providers: [],
     })

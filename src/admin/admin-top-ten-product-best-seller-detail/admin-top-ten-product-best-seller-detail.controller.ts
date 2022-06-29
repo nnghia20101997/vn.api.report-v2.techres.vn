@@ -33,6 +33,4 @@ export class AdminTopTenProductBestSellerDetailController{
         );
         return res.status(HttpStatus.OK).send(response);
     }
-
-
 }
