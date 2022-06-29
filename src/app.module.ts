@@ -19,6 +19,10 @@ import { AdminTopTenProductBestSellerDetailModule } from "./admin/admin-top-ten-
 import { AdminGravityProductBestSellerModule } from "./admin/admin-gravity-product-best-seller/admin-gravity-product-best-seller.module";
 import { AdminTotalRevenueProductsModule } from "./admin/admin-total-revenue-products/admin-total-revenue-products.module";
 import { AdminAdvertisingRevenueModule } from "./admin/admin-advertising-revenue/admin-advertising-revenue.module";
+import { AdminBranchReportModule } from "./admin/admin-branch-report/admin-branch-report.module";
+import { AdminTopBestSalerReportModule } from "./admin/admin-top-best-saler-report/admin-top-best-saler-report.module";
+import { AdminSalerDetailReportModule } from "./admin/admin-saler-detail-report/admin-saler-detail-report.module";
+import { AdminBestSalerGravityReportModule } from "./admin/admin-best-saler-gravity-report/admin-best-saler-gravity-report.module";
 
 @Module({
   imports: [
@@ -51,13 +55,18 @@ import { AdminAdvertisingRevenueModule } from "./admin/admin-advertising-revenue
     AuthModule,
     RestaurantModule,
     RestaurantBrandModule,
-    BranchModule,
     SupplierOverviewReportModule,
     AdminAdvertisingRevenueModule,
     AdminCustomerAlolineReportModule,
     AdminTopTenProductBestSellerDetailModule,
     AdminGravityProductBestSellerModule,
-    AdminTotalRevenueProductsModule,
+
+    AdminTotalRevenueProductsModule, // 29/06
+    BranchModule,
+    AdminBranchReportModule,
+    AdminTopBestSalerReportModule,
+    AdminSalerDetailReportModule,
+    AdminBestSalerGravityReportModule,
   ],
   providers: [],
 })
