@@ -14,6 +14,11 @@ import { RestaurantBrandModule } from "./restaurant-brand/restaurant-brand.modul
 import { RestaurantModule } from "./restaurant/restaurant.module";
 import { AuthenticationMiddleware } from "./utils.common/utils.middleware.common/utils.bearer-token.common";
 import { SupplierOverviewReportModule } from './supplier/supplier-overview-report/supplier-overview-report.module';
+import { AdminCustomerAlolineReportModule } from "./admin/admin-customer-aloline-report/admin-customer-aloline-report.module";
+import { AdminTopTenProductBestSellerDetailModule } from "./admin/admin-top-ten-product-best-seller-detail/admin-top-ten-product-best-seller-detail.module";
+import { AdminGravityProductBestSellerModule } from "./admin/admin-gravity-product-best-seller/admin-gravity-product-best-seller.module";
+import { AdminTotalRevenueProductsModule } from "./admin/admin-total-revenue-products/admin-total-revenue-products.module";
+import { AdminAdvertisingRevenueModule } from "./admin/admin-advertising-revenue/admin-advertising-revenue.module";
 
 @Module({
   imports: [
@@ -48,6 +53,11 @@ import { SupplierOverviewReportModule } from './supplier/supplier-overview-repor
     RestaurantBrandModule,
     BranchModule,
     SupplierOverviewReportModule,
+    AdminAdvertisingRevenueModule,
+    AdminCustomerAlolineReportModule,
+    AdminTopTenProductBestSellerDetailModule,
+    AdminGravityProductBestSellerModule,
+    AdminTotalRevenueProductsModule,
   ],
   providers: [],
 })
