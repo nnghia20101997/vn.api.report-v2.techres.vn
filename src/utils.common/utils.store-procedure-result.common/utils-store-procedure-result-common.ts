@@ -36,8 +36,6 @@ export class StoreProcedureResult<T> {
             throw new HttpException(new ExceptionResponseDetail(HttpStatus.BAD_REQUEST, 'Không tồn tại!'), HttpStatus.OK);
         }
 
-       
-        
         return data[0][0];
     }
 
