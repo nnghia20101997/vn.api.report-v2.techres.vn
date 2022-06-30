@@ -6,18 +6,19 @@ import { AdminTopTenProductBestSellerDetailController } from "./admin-top-ten-pr
 import { AdminTopTenProductBestSellerDetailDataModelEntity } from "./admin-top-ten-product-best-seller-detail.entity/admin-top-ten-product-best-seller-detail-data-model.entity";
 import { AdminTopTenProductBestSellerDetailService } from "./admin-top-ten-product-best-seller-detail.service";
 
-
 @Module({
-    imports: [
-        TypeOrmModule.forFeature([AdminTopTenProductBestSellerDetailDataModelEntity]),
-        PassportModule.register({ defaultStrategy: "jwt" }),
-        JwtModule.register({
-          secret: process.env.SECRET_TOKEN,
-        }),
-        AdminTopTenProductBestSellerDetailModule,
-      ],
-      controllers: [AdminTopTenProductBestSellerDetailController],
-      providers: [AdminTopTenProductBestSellerDetailService],
-      exports: [AdminTopTenProductBestSellerDetailService]
+  imports: [
+    TypeOrmModule.forFeature([
+      AdminTopTenProductBestSellerDetailDataModelEntity,
+    ]),
+    PassportModule.register({ defaultStrategy: "jwt" }),
+    JwtModule.register({
+      secret: process.env.SECRET_TOKEN,
+    }),
+    AdminTopTenProductBestSellerDetailModule,
+  ],
+  controllers: [AdminTopTenProductBestSellerDetailController],
+  providers: [AdminTopTenProductBestSellerDetailService],
+  exports: [AdminTopTenProductBestSellerDetailService],
 })
 export class AdminTopTenProductBestSellerDetailModule {}

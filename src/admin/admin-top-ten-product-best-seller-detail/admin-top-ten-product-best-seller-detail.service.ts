@@ -7,12 +7,12 @@ import { AdminTopTenProductBestSellerDetailDataModelEntity } from "./admin-top-t
 
 @Injectable()
 export class AdminTopTenProductBestSellerDetailService {
-    constructor(
-        @InjectRepository(AdminTopTenProductBestSellerDetailDataModelEntity)
-        private adminTopTenProductBestSellerDetailDataModelEntity: Repository<AdminTopTenProductBestSellerDetailDataModelEntity>
-    ){}
+  constructor(
+    @InjectRepository(AdminTopTenProductBestSellerDetailDataModelEntity)
+    private adminTopTenProductBestSellerDetailDataModelEntity: Repository<AdminTopTenProductBestSellerDetailDataModelEntity>
+  ) {}
 
-      /**
+  /**
    *
    * @param fromDate
    * @param toDate
@@ -21,22 +21,23 @@ export class AdminTopTenProductBestSellerDetailService {
    * @returns
    */
 
-       async spGRpAdminTopTenProductBestSellerDetail(
-        fromDate: string,
-        toDate: string,
-        _offset: number,
-        _limit: number
-      ): Promise<AdminTopTenProductBestSellerDetailDataModelEntity[]> {
-        let result = await this.adminTopTenProductBestSellerDetailDataModelEntity.query(
-          "CALL sp_g_rp_admin_top_ten_product_best_seller_detail(?,?,?,?,@status,@message); SELECT @status AS status , @message AS message",
-          [fromDate, toDate, _offset,_limit]
-        );
-        ExceptionStoreProcedure.validate(result);
-        let data: AdminTopTenProductBestSellerDetailDataModelEntity[] =
-          new StoreProcedureResult<AdminTopTenProductBestSellerDetailDataModelEntity>().getResultList(
-            result
-          );
-    
-        return data;
-      }
+  async spGRpAdminTopTenProductBestSellerDetail(
+    fromDate: string,
+    toDate: string,
+    _offset: number,
+    _limit: number
+  ): Promise<AdminTopTenProductBestSellerDetailDataModelEntity[]> {
+    let result =
+      await this.adminTopTenProductBestSellerDetailDataModelEntity.query(
+        "CALL sp_g_rp_admin_top_ten_product_best_seller_detail(?,?,?,?,@status,@message); SELECT @status AS status , @message AS message",
+        [fromDate, toDate, _offset, _limit]
+      );
+    ExceptionStoreProcedure.validate(result);
+    let data: AdminTopTenProductBestSellerDetailDataModelEntity[] =
+      new StoreProcedureResult<AdminTopTenProductBestSellerDetailDataModelEntity>().getResultList(
+        result
+      );
+
+    return data;
+  }
 }

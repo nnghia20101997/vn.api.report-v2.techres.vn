@@ -7,16 +7,16 @@ import { AdminTotalRevenueProductsDataModelEntity } from "./admin-total-revenue-
 import { AdminTotalRevenueProductsService } from "./admin-total-revenue-products.service";
 
 @Module({
-    imports: [
-        TypeOrmModule.forFeature([AdminTotalRevenueProductsDataModelEntity]),
-        PassportModule.register({ defaultStrategy: "jwt" }),
-        JwtModule.register({
-          secret: process.env.SECRET_TOKEN,
-        }),
-        AdminTotalRevenueProductsModule,
-      ],
-      controllers: [AdminTotalRevenueProductsController],
-      providers: [AdminTotalRevenueProductsService],
-      exports: [AdminTotalRevenueProductsService]
+  imports: [
+    TypeOrmModule.forFeature([AdminTotalRevenueProductsDataModelEntity]),
+    PassportModule.register({ defaultStrategy: "jwt" }),
+    JwtModule.register({
+      secret: process.env.SECRET_TOKEN,
+    }),
+    AdminTotalRevenueProductsModule,
+  ],
+  controllers: [AdminTotalRevenueProductsController],
+  providers: [AdminTotalRevenueProductsService],
+  exports: [AdminTotalRevenueProductsService],
 })
 export class AdminTotalRevenueProductsModule {}

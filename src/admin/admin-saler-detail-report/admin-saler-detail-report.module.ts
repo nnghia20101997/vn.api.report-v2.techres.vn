@@ -7,16 +7,16 @@ import { AdminSalerDetailReportDataModelEntity } from "./admin-saler-detail-repo
 import { AdminSalerDetailReportService } from "./admin-saler-detail-report.service";
 
 @Module({
-    imports: [
-        TypeOrmModule.forFeature([AdminSalerDetailReportDataModelEntity]),
-        PassportModule.register({ defaultStrategy: "jwt" }),
-        JwtModule.register({
-          secret: process.env.SECRET_TOKEN,
-        }),
-        AdminSalerDetailReportModule,
-      ],
-      controllers: [AdminSalerDetailReportController],
-      providers: [AdminSalerDetailReportService],
-      exports: [AdminSalerDetailReportService]
+  imports: [
+    TypeOrmModule.forFeature([AdminSalerDetailReportDataModelEntity]),
+    PassportModule.register({ defaultStrategy: "jwt" }),
+    JwtModule.register({
+      secret: process.env.SECRET_TOKEN,
+    }),
+    AdminSalerDetailReportModule,
+  ],
+  controllers: [AdminSalerDetailReportController],
+  providers: [AdminSalerDetailReportService],
+  exports: [AdminSalerDetailReportService],
 })
 export class AdminSalerDetailReportModule {}

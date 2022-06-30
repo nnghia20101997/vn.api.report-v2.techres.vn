@@ -6,32 +6,32 @@ import { Repository } from "typeorm";
 import { AdminTotalRevenueProductsDataModelEntity } from "./admin-total-revenue-products.entity/admin-total-revenue-products.entity";
 
 @Injectable()
-export class AdminTotalRevenueProductsService{
-constructor(
+export class AdminTotalRevenueProductsService {
+  constructor(
     @InjectRepository(AdminTotalRevenueProductsDataModelEntity)
     private adminTotalRevenueProductsDataModelEntity: Repository<AdminTotalRevenueProductsDataModelEntity>
   ) {}
 
-    /**
+  /**
    *
    * @param fromDate
    * @param toDate
    * @returns
    */
-     async spGRpAdminTotalRevenueProducts(
-        fromDate: string,
-        toDate: string,
-      ): Promise<AdminTotalRevenueProductsDataModelEntity[]> {
-        let result = await this.adminTotalRevenueProductsDataModelEntity.query(
-          "CALL sp_g_rp_admin_total_revenue_products(?,?,@status,@message); SELECT @status AS status , @message AS message",
-          [fromDate, toDate]
-        );
-        ExceptionStoreProcedure.validate(result);
-        let data: AdminTotalRevenueProductsDataModelEntity[] =
-          new StoreProcedureResult<AdminTotalRevenueProductsDataModelEntity>().getResultList(
-            result
-          );
-    
-        return data;
-      }
+  async spGRpAdminTotalRevenueProducts(
+    fromDate: string,
+    toDate: string
+  ): Promise<AdminTotalRevenueProductsDataModelEntity[]> {
+    let result = await this.adminTotalRevenueProductsDataModelEntity.query(
+      "CALL sp_g_rp_admin_total_revenue_products(?,?,@status,@message); SELECT @status AS status , @message AS message",
+      [fromDate, toDate]
+    );
+    ExceptionStoreProcedure.validate(result);
+    let data: AdminTotalRevenueProductsDataModelEntity[] =
+      new StoreProcedureResult<AdminTotalRevenueProductsDataModelEntity>().getResultList(
+        result
+      );
+
+    return data;
+  }
 }

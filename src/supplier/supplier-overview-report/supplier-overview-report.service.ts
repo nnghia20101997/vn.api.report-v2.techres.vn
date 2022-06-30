@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { ExceptionStoreProcedure } from "src/utils.common/utils.exception.common/utils.store-procedure-exception.common";
-import { StoreProcedureResult } from "src/utils.common/utils.store-procedure-result.common/utils-store-procedure-result-common";
+import { StoreProcedureResult } from "src/utils.common/utils.store-procedure-result.common/utils-store-procedure-result.common";
 import { Repository } from "typeorm";
 import { SupplierOverviewReportEntity } from "./supplier-overview-report.entity/supplier-overview-report.entity";
 

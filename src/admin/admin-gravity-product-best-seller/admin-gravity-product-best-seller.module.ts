@@ -7,16 +7,16 @@ import { AdminGravityProductBestSellerDataModelEntity } from "./admin-gravity-pr
 import { AdminGravityProductBestSellerService } from "./admin-gravity-product-best-seller.service";
 
 @Module({
-    imports: [
-        TypeOrmModule.forFeature([AdminGravityProductBestSellerDataModelEntity]),
-        PassportModule.register({ defaultStrategy: "jwt" }),
-        JwtModule.register({
-          secret: process.env.SECRET_TOKEN,
-        }),
-        AdminGravityProductBestSellerModule,
-      ],
-      controllers: [AdminGravityProductBestSellerController],
-      providers: [AdminGravityProductBestSellerService],
-      exports: [AdminGravityProductBestSellerService]
+  imports: [
+    TypeOrmModule.forFeature([AdminGravityProductBestSellerDataModelEntity]),
+    PassportModule.register({ defaultStrategy: "jwt" }),
+    JwtModule.register({
+      secret: process.env.SECRET_TOKEN,
+    }),
+    AdminGravityProductBestSellerModule,
+  ],
+  controllers: [AdminGravityProductBestSellerController],
+  providers: [AdminGravityProductBestSellerService],
+  exports: [AdminGravityProductBestSellerService],
 })
 export class AdminGravityProductBestSellerModule {}
