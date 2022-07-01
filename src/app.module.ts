@@ -13,7 +13,7 @@ import { BranchModule } from "./branch/branch.module";
 import { RestaurantBrandModule } from "./restaurant-brand/restaurant-brand.module";
 import { RestaurantModule } from "./restaurant/restaurant.module";
 import { AuthenticationMiddleware } from "./utils.common/utils.middleware.common/utils.bearer-token.common";
-import { SupplierOverviewReportModule } from './supplier/supplier-overview-report/supplier-overview-report.module';
+import { SupplierOverviewReportModule } from "./supplier/supplier-overview-report/supplier-overview-report.module";
 import { AdminCustomerAlolineReportModule } from "./admin/admin-customer-aloline-report/admin-customer-aloline-report.module";
 import { AdminTopTenProductBestSellerDetailModule } from "./admin/admin-top-ten-product-best-seller-detail/admin-top-ten-product-best-seller-detail.module";
 import { AdminGravityProductBestSellerModule } from "./admin/admin-gravity-product-best-seller/admin-gravity-product-best-seller.module";
@@ -27,6 +27,8 @@ import { AdminAdvertisingRevenueDetailModule } from "./admin/admin-advertising-r
 import { AdminTotalAllSalerReportModule } from "./admin/admin-total-all-saler-report/admin-total-all-saler-report.module";
 import { AdminLocationWithBestSalesResultsReportModule } from "./admin/admin-location-with-best-sales-results-report/admin-location-with-best-sales-results-report.module";
 import { AdminTotalAllLocationWithBestSalesResultsReportModule } from "./admin/admin-total-all-location-with-best-sales-results-report/admin-total-all-location-with-best-sales-results-report.module";
+import { SupplierTotalDebtAndDebitListAndPublicCollectionModule } from "./supplier/supplier-total-debt-and-debit-list-and-public-collection/supplier-total-debt-and-debit-list-and-public-collection.module";
+import { SupplierOrderTotalOrderByTimeModule } from "./supplier/supplier-order-total-order-by-time/supplier-order-total-order-by-time.module";
 
 @Module({
   imports: [
@@ -72,10 +74,12 @@ import { AdminTotalAllLocationWithBestSalesResultsReportModule } from "./admin/a
     AdminSalerDetailReportModule,
     AdminBestSalerGravityReportModule,
 
-    AdminTotalAllSalerReportModule, // 30/06
+    AdminTotalAllSalerReportModule, // 01/07
     AdminLocationWithBestSalesResultsReportModule,
     AdminTotalAllLocationWithBestSalesResultsReportModule,
     AdminAdvertisingRevenueDetailModule,
+    SupplierTotalDebtAndDebitListAndPublicCollectionModule,
+    SupplierOrderTotalOrderByTimeModule,
   ],
   providers: [],
 })
