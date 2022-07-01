@@ -23,6 +23,10 @@ import { AdminBranchReportModule } from "./admin/admin-branch-report/admin-branc
 import { AdminTopBestSalerReportModule } from "./admin/admin-top-best-saler-report/admin-top-best-saler-report.module";
 import { AdminSalerDetailReportModule } from "./admin/admin-saler-detail-report/admin-saler-detail-report.module";
 import { AdminBestSalerGravityReportModule } from "./admin/admin-best-saler-gravity-report/admin-best-saler-gravity-report.module";
+import { AdminAdvertisingRevenueDetailModule } from "./admin/admin-advertising-revenue-detail/admin-advertising-revenue-detail.module";
+import { AdminTotalAllSalerReportModule } from "./admin/admin-total-all-saler-report/admin-total-all-saler-report.module";
+import { AdminLocationWithBestSalesResultsReportModule } from "./admin/admin-location-with-best-sales-results-report/admin-location-with-best-sales-results-report.module";
+import { AdminTotalAllLocationWithBestSalesResultsReportModule } from "./admin/admin-total-all-location-with-best-sales-results-report/admin-total-all-location-with-best-sales-results-report.module";
 
 @Module({
   imports: [
@@ -67,6 +71,11 @@ import { AdminBestSalerGravityReportModule } from "./admin/admin-best-saler-grav
     AdminTopBestSalerReportModule,
     AdminSalerDetailReportModule,
     AdminBestSalerGravityReportModule,
+
+    AdminTotalAllSalerReportModule, // 30/06
+    AdminLocationWithBestSalesResultsReportModule,
+    AdminTotalAllLocationWithBestSalesResultsReportModule,
+    AdminAdvertisingRevenueDetailModule,
   ],
   providers: [],
 })

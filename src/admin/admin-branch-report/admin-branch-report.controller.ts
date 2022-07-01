@@ -12,6 +12,7 @@ import { ResponseData } from "src/utils.common/utils.response.common/utils.respo
 import { StoreProcedureOutputResultInterface } from "src/utils.common/utils.store-procedure-result.common/utils.store-procedure-output-result.interface.common";
 import { AdminBranchReportQueryDTO } from "./admin-branch-report.dto/admin-branch-report.query.dto";
 import { AdminBranchReporDataModelEntity } from "./admin-branch-report.entity/admin-branch-report.entity";
+import { AdminBranchReportOutputResponse } from "./admin-branch-report.response/admin-branch-report.output.response";
 import { AdminBranchReportResponse } from "./admin-branch-report.response/admin-branch-report.response";
 import { AdminBranchReportService } from "./admin-branch-report.service";
 
@@ -29,14 +30,15 @@ export class AdminTopTenProductBestSellerDetailController {
 
     let result: StoreProcedureOutputResultInterface<
       AdminBranchReporDataModelEntity,
-      object
+      any
     > = await this.adminBranchReportService.spGRpAdminBranchReport(
       adminBranchReportQueryDTO.status
     );
 
 
-
-    response.setData(new AdminBranchReportResponse().mapToList(result.list));
-    return res.status(HttpStatus.OK).send(result.output);
+    // response.setData(new AdminBranchReportResponse().mapToList(result.list));
+    response.setData(new AdminBranchReportOutputResponse(result.list,result.output));
+    
+    return res.status(HttpStatus.OK).send(response);
   }
 }

@@ -1,67 +1,59 @@
+import { ParseIntPipe } from "@nestjs/common";
 import * as moment from "moment";
-
-const {
-  HOUR,
-  DAY,
-  WEEK,
-  MONTH,
-  NEAREST_THREE_MONTHS,
-  YEAR,
-  THREE_YEARS,
-  ALL_MONTHS,
-  ALL_YEAR,
-  YESTERDAY,
-  LAST_MONTH,
-  LAST_YEAR,
-} = require("./../utils.common/utils.enum/utils.report-type.enum");
-const {
-  GROUP_HOUR,
-  GROUP_DAY,
-  GROUP_WEEK,
-  GROUP_MONTH,
-  GROUP_YEAR,
-} = require("./../utils.common/utils.enum/utils.group-by-time.enum");
+import { GroupByTimeEnum } from "../utils.enum/utils.group-by-time.enum";
+import { ReportTypeEnum } from "../utils.enum/utils.report-type.enum";
+import { GetTimeDataBase } from "./utils.get.time.database";
 
 export class StoreProcedureGetTimeDatabase {
-  public time_type: reportTypeEnum;
-  constructor(time_type) {
+  public time_type: number;
+  constructor(time_type:number) {
     this.time_type = time_type;
   }
 
-  public getTimeType() {
+
+
+ 
+  
+
+  public getTimeType(): GetTimeDataBase {
+
+    
     let listTimeType = [
-      HOUR,
-      DAY,
-      WEEK,
-      MONTH,
-      NEAREST_THREE_MONTHS,
-      YEAR,
-      THREE_YEARS,
-      ALL_MONTHS,
-      ALL_YEAR,
-      YESTERDAY,
-      LAST_MONTH,
-      LAST_YEAR,
+      ReportTypeEnum.HOUR,
+     ReportTypeEnum.DAY,
+     ReportTypeEnum.WEEK,
+     ReportTypeEnum.MONTH,
+     ReportTypeEnum.NEAREST_THREE_MONTHS,
+     ReportTypeEnum.YEAR,
+     ReportTypeEnum.THREE_YEARS,
+     ReportTypeEnum.ALL_MONTHS,
+     ReportTypeEnum.ALL_YEAR,
+     ReportTypeEnum.YESTERDAY,
+     ReportTypeEnum.LAST_MONTH,
+     ReportTypeEnum.LAST_YEAR
     ];
     let from_date = "";
     let to_date = "";
-    let group_type = YEAR;
+    let group_type = GroupByTimeEnum.GROUP_YEAR;
 
-    if (listTimeType.includes(this.time_type)) {
-      switch (this.time_type) {
-        case HOUR:
+  
+    
+
+    if (listTimeType.includes(Number(this.time_type))) {
+      switch (Number(this.time_type)) {
+        case ReportTypeEnum.HOUR:
           from_date = moment().format("YYYY-MM-DD");
           to_date = moment().add(1, "day").format("YYYY-MM-DD");
-          group_type = GROUP_HOUR;
+          group_type = GroupByTimeEnum.GROUP_HOUR;
           break;
 
-        case DAY:
+        case ReportTypeEnum.DAY:
           from_date = moment().format("YYYY-MM-DD");
           to_date = moment().add(1, "day").format("YYYY-MM-DD");
-          group_type = GROUP_HOUR;
+          group_type = GroupByTimeEnum.GROUP_HOUR;
           break;
 
-        case WEEK:
+        case ReportTypeEnum.WEEK:
           from_date = moment()
             .startOf("week")
             .isoWeekday(1)
@@ -73,16 +65,16 @@ export class StoreProcedureGetTimeDatabase {
             .add(7, "day")
             .add(7, "day")
             .format("YYYY-MM-DD");
-          group_type = GROUP_WEEK;
+          group_type = GroupByTimeEnum.GROUP_WEEK;
           break;
 
-        case MONTH:
+        case ReportTypeEnum.MONTH:
           from_date = moment().startOf("month").format("YYYY-MM-DD");
           to_date = moment().endOf("month").add(1, "day").format("YYYY-MM-DD");
-          group_type = GROUP_DAY;
+          group_type = GroupByTimeEnum.GROUP_DAY;
           break;
 
-        case LAST_MONTH:
+        case ReportTypeEnum.LAST_MONTH:
           from_date = moment()
             .startOf("month")
             .subtract(1, "month")
@@ -92,40 +84,40 @@ export class StoreProcedureGetTimeDatabase {
             .endOf("month")
             .add(1, "day")
             .format("YYYY-MM-DD");
-          group_type = GROUP_DAY;
+          group_type = GroupByTimeEnum.GROUP_DAY;
           break;
 
-        case NEAREST_THREE_MONTHS:
+        case ReportTypeEnum.NEAREST_THREE_MONTHS:
           from_date = moment()
             .startOf("month")
             .subtract(2, "month")
             .format("YYYY-MM-DD");
           to_date = moment().endOf("month").add(1, "day").format("YYYY-MM-DD");
-          group_type = GROUP_MONTH;
+          group_type = GroupByTimeEnum.GROUP_MONTH;
           break;
 
-        case YEAR:
+        case ReportTypeEnum.YEAR:
           from_date = moment().startOf("year").format("YYYY-MM-DD");
           to_date = moment().endOf("year").add(1, "day").format("YYYY-MM-DD");
-          group_type = GROUP_MONTH;
+          group_type = GroupByTimeEnum.GROUP_MONTH;
           break;
 
-        case THREE_YEARS:
+        case ReportTypeEnum.THREE_YEARS:
           from_date = moment()
             .startOf("year")
             .subtract(2, "year")
             .format("YYYY-MM-DD");
           to_date = moment().endOf("year").add(1, "day").format("YYYY-MM-DD");
-          group_type = GROUP_MONTH;
+          group_type = GroupByTimeEnum.GROUP_MONTH;
           break;
 
-        case YESTERDAY:
+        case ReportTypeEnum.YESTERDAY:
           from_date = moment().subtract(1, "day").format("YYYY-MM-DD");
           to_date = moment().format("YYYY-MM-DD");
-          group_type = GROUP_DAY;
+          group_type = GroupByTimeEnum.GROUP_DAY;
           break;
 
-        case LAST_YEAR:
+        case ReportTypeEnum.LAST_YEAR:
           from_date = moment()
             .startOf("year")
             .subtract(1, "year")
@@ -135,18 +127,15 @@ export class StoreProcedureGetTimeDatabase {
             .subtract(1, "year")
             .add(1, "day")
             .format("YYYY-MM-DD");
-          group_type = GROUP_MONTH;
+          group_type = GroupByTimeEnum.GROUP_MONTH;
           break;
         default:
-          return "";
+          return null;
       }
-      return {
-        from_date: from_date,
-        to_date: to_date,
-        group_type: group_type,
-      };
+
+      return new GetTimeDataBase(from_date,to_date, Number(group_type));
     } else {
-      return false;
+      return null;
     }
   }
 }
