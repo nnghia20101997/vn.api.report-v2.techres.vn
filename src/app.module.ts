@@ -23,6 +23,11 @@ import { AdminBranchReportModule } from "./admin/admin-branch-report/admin-branc
 import { AdminTopBestSalerReportModule } from "./admin/admin-top-best-saler-report/admin-top-best-saler-report.module";
 import { AdminSalerDetailReportModule } from "./admin/admin-saler-detail-report/admin-saler-detail-report.module";
 import { AdminBestSalerGravityReportModule } from "./admin/admin-best-saler-gravity-report/admin-best-saler-gravity-report.module";
+import { RestaurantRevenueByBranchReportModule } from "./order-lv1/current-day-report/restaurant-revenue-by-branch-report/restaurant-revenue-by-branch-report.module";
+import { RestaurantRevenueCostCustomerByRestaurantBrandReportModule } from "./order-lv1/current-day-report/restaurant-revenue-cost-customer-by-restaurant-brand-report/restaurant-revenue-cost-customer-by-restaurant-brand-report.module";
+import { RestaurantRevenueDetailByRestaurantBrandReportModule } from "./order-lv1/current-day-report/restaurant-revenue-detail-by-restaurant-brand-report/restaurant-revenue-detail-by-restaurant-brand-report.module";
+import { RestaurantDiscountFromOrderReportModule } from "./order-lv1/restaurant-discount-from-order-report/restaurant-discount-from-order-report.module";
+import { RestaurantVatReportModule } from "./order-lv1/restaurant-vat-report/restaurant-vat-report.module";
 
 @Module({
   imports: [
@@ -67,6 +72,11 @@ import { AdminBestSalerGravityReportModule } from "./admin/admin-best-saler-grav
     AdminTopBestSalerReportModule,
     AdminSalerDetailReportModule,
     AdminBestSalerGravityReportModule,
+    RestaurantRevenueByBranchReportModule,
+    RestaurantRevenueCostCustomerByRestaurantBrandReportModule,
+    RestaurantRevenueDetailByRestaurantBrandReportModule,
+    RestaurantDiscountFromOrderReportModule,
+    RestaurantVatReportModule
   ],
   providers: [],
 })
