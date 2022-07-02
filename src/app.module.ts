@@ -29,6 +29,7 @@ import { AdminLocationWithBestSalesResultsReportModule } from "./admin/admin-loc
 import { AdminTotalAllLocationWithBestSalesResultsReportModule } from "./admin/admin-total-all-location-with-best-sales-results-report/admin-total-all-location-with-best-sales-results-report.module";
 import { SupplierTotalDebtAndDebitListAndPublicCollectionModule } from "./supplier/supplier-total-debt-and-debit-list-and-public-collection/supplier-total-debt-and-debit-list-and-public-collection.module";
 import { SupplierOrderTotalOrderByTimeModule } from "./supplier/supplier-order-total-order-by-time/supplier-order-total-order-by-time.module";
+import { SupplierCategoryDetailModule } from "./supplier/supplier-category-detail/supplier-category-detail.module";
 
 @Module({
   imports: [
@@ -80,6 +81,7 @@ import { SupplierOrderTotalOrderByTimeModule } from "./supplier/supplier-order-t
     AdminAdvertisingRevenueDetailModule,
     SupplierTotalDebtAndDebitListAndPublicCollectionModule,
     SupplierOrderTotalOrderByTimeModule,
+    SupplierCategoryDetailModule,
   ],
   providers: [],
 })
