@@ -12,6 +12,6 @@ export class RestaurantRevenueCostSummaryReportQueryDTO{
     
     readonly to_date_string: string = "";
 
-    readonly group_by_type : number = -1 ; 
+    readonly group_by_type : number = 1; 
 
 }

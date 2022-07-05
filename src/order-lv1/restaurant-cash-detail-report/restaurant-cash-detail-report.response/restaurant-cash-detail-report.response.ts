@@ -3,7 +3,7 @@ import { RestaurantCashDetailReportOutputEntity } from "../restaurant-cash-detai
 
 export class RestaurantCashDetailReportResponse{
 
-   listDataReport : RestaurantCashDetailReportEntity[];
+   list_data_report: RestaurantCashDetailReportEntity[];
 
    total_amount_receipt: number = 0;
 
@@ -18,15 +18,15 @@ export class RestaurantCashDetailReportResponse{
    total_record: number = 0;
 
 
-    constructor(listDataResponse ?: RestaurantCashDetailReportEntity[] , 
-                entityAmount ?: RestaurantCashDetailReportOutputEntity){
-        this.listDataReport = listDataResponse  ;
-        this.total_amount_receipt = entityAmount ? +entityAmount.total_amount_receipt : 0 ;
-        this.total_amount_payment =  entityAmount ? +entityAmount.total_amount_payment : 0 ;
-        this.total_amount = entityAmount ? +entityAmount.total_amount : 0 ;
-        this.total_record_receipt =  entityAmount ? +entityAmount.total_record_receipt : 0 ;
-        this.total_record_payment = entityAmount ? +entityAmount.total_record_payment : 0 ;
-        this.total_record =  entityAmount ? +entityAmount.total_record : 0 ;
+    constructor(list_data_report ?: RestaurantCashDetailReportEntity[] , 
+                entity_amount ?: RestaurantCashDetailReportOutputEntity){
+        this.list_data_report = list_data_report  ;
+        this.total_amount_receipt =  entity_amount ? +entity_amount.total_amount_receipt : 0 ;
+        this.total_amount_payment =   entity_amount ? +entity_amount.total_amount_payment : 0 ;
+        this.total_amount =  entity_amount ? +entity_amount.total_amount : 0 ;
+        this.total_record_receipt =   entity_amount ? +entity_amount.total_record_receipt : 0 ;
+        this.total_record_payment =  entity_amount ? +entity_amount.total_record_payment : 0 ;
+        this.total_record =   entity_amount ? +entity_amount.total_record : 0 ;
     }
 
   

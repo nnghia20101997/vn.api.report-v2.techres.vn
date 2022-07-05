@@ -13,16 +13,12 @@ export class RestaurantRevenueCostSummaryReportResponse{
 
     report_time : string ;
 
-
     total_amount : number ;  
-
 
     addition_fee_reason_id : number;
 
-
     addition_fee_reason_type_id : number;
 
- 
     addition_fee_reason_content : string ;
 
     constructor(entity ?: RestaurantRevenueCostSummaryReportEntity){

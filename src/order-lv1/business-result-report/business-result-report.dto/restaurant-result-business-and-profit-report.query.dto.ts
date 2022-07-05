@@ -6,7 +6,7 @@ export class RestaurantResultBusinessAndProfitReportQueryDTO{
     
     readonly branch_id: number = -1;
 
-    readonly group_by_type : number = -1 ; 
+    readonly group_by_type : number = 1; 
 
     readonly from_date_string: string = "";
     

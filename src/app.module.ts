@@ -40,6 +40,12 @@ import { RestaurantEmployeeTargetReportModule } from "./order-lv1/restaurant-emp
 import { RestaurantOrderExtraChargeReportModule } from "./order-lv1/restaurant-order-extra-charge-report/restaurant-order-extra-charge-report.module";
 import { RestaurantRevenueByCategoryReportModule } from "./order-lv1/restaurant-revenue-by-category-report/restaurant-revenue-by-category-report.module";
 import { RestaurantVatReportModule } from "./order-lv1/restaurant-vat-report/restaurant-vat-report.module";
+import { CustomerAccumulatePointsReportModule } from "./order-lv1/customer-accumulate-points-report/customer-accumulate-points-report.module";
+import { WarehouseSessionTotalImportExportAmountReportModule } from "./order-lv1/warehouse-session-total-import-export-amount-report/warehouse-session-total-import-export-amount-report.module";
+import { RestaurantInformationInAlolineReportModule } from "./order-lv1/restaurant-information-in-aloline-report/restaurant-information-in-aloline-report.module";
+import { RestaurantMembershipCardLevelReportModule } from "./order-lv1/restaurant-membership-card-level-report/restaurant-membership-card-level-report.module";
+import { SupplierMaterialPriceChangeHistoriesReportModule } from "./order-lv1/supplier-material-price-change-histories-report/supplier-material-price-change-histories-report.module";
+import { RestaurantOrderDetailByFoodIdReportModule } from "./order-lv1/restaurant-order-detail-by-food-id-report/restaurant-order-detail-by-food-id-report.module";
 
 @Module({
   imports: [
@@ -101,7 +107,13 @@ import { RestaurantVatReportModule } from "./order-lv1/restaurant-vat-report/res
     RestaurantEmployeeTargetReportModule,
     RestaurantOrderExtraChargeReportModule,
     RestaurantRevenueByCategoryReportModule,
-    RestaurantVatReportModule
+    RestaurantVatReportModule,
+    CustomerAccumulatePointsReportModule,
+    WarehouseSessionTotalImportExportAmountReportModule,
+    RestaurantInformationInAlolineReportModule,
+    RestaurantMembershipCardLevelReportModule,
+    SupplierMaterialPriceChangeHistoriesReportModule,
+    RestaurantOrderDetailByFoodIdReportModule
   ],
   providers: [],
 })

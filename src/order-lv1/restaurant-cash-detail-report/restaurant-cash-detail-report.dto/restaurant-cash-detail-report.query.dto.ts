@@ -14,7 +14,7 @@ export class RestaurantCashDetailReportQueryDTO{
 
     readonly key_word : string = "" ; 
 
-    readonly offset: number = -1;
+    readonly offset: number = 100;
 
-    readonly limit: number = -1;
+    readonly limit: number = 0;
 }

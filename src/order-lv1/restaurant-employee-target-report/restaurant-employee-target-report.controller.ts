@@ -13,7 +13,7 @@ export class RestaurantEmployeeTargetReportController {
     ) { }
 
     @Get("")
-    async getRpRestaurantRevenueByBranch(@Query() restaurantEmployeeTargetReportQueryDTO : RestaurantEmployeeTargetReportQueryDTO, @Res() res: Response): Promise<any> {
+    async getRpRestaurantEmployeeTarget(@Query() restaurantEmployeeTargetReportQueryDTO : RestaurantEmployeeTargetReportQueryDTO, @Res() res: Response): Promise<any> {
         let response: ResponseData = new ResponseData();
         let result : RestaurantEmployeeTargetReportEntity[]= await this.restaurantEmployeeTargetReportService.spGetRpRestaurantEmployeeTarget(
             restaurantEmployeeTargetReportQueryDTO.restaurant_id ,

@@ -6,13 +6,13 @@ export class CustomerUsePointsReportQueryDTO{
     
     readonly branch_id: number = -1;
 
-    readonly type_point : number = -1 ; 
+    readonly type_point : number = 1 ; 
 
     readonly from_date_string: string = "";
     
     readonly to_date_string: string = "";
 
-    readonly limit : number = 0 ;
+    readonly limit : number = 100 ;
 
     readonly offset : number = 0 ;
 

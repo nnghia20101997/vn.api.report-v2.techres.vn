@@ -1,0 +1,1 @@
+{"version":3,"file":"utils.get.time.database.js","sourceRoot":"","sources":["../../../../src/utils.common/utils.format-time.common/utils.get.time.database.ts"],"names":[],"mappings":";;;AAAA,MAAa,eAAe;IAO1B,YAAY,SAAiB,EAAE,OAAe,EAAE,UAAkB;QAChE,IAAI,CAAC,SAAS,GAAG,SAAS,CAAC;QAC3B,IAAI,CAAC,OAAO,GAAG,OAAO,CAAC;QACvB,IAAI,CAAC,UAAU,GAAG,UAAU,CAAC;IAC/B,CAAC;CACF;AAZD,0CAYC"}
