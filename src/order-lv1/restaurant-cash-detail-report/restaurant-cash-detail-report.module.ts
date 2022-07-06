@@ -3,7 +3,6 @@ import { RestaurantCashDetailReportService } from './restaurant-cash-detail-repo
 import { RestaurantCashDetailReportController } from './restaurant-cash-detail-report.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RestaurantCashDetailReportEntity } from './restaurant-cash-detail-report.entity/restaurant-cash-detail-report.entity';
-import { RestaurantCashDetailReportOutputEntity } from './restaurant-cash-detail-report.entity/restaurant-cash-detail-report.output.entity';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 

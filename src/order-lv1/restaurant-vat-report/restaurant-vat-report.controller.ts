@@ -13,7 +13,7 @@ export class RestaurantVatReportController {
     ) { }
 
     @Get("")
-    async getRpRestaurantRevenueByBranch(@Query() restaurantVatReportQueryDTO : RestaurantVatReportQueryDTO, @Res() res: Response): Promise<any> {
+    async getRpRestaurantVat(@Query() restaurantVatReportQueryDTO : RestaurantVatReportQueryDTO, @Res() res: Response): Promise<any> {
         let response: ResponseData = new ResponseData();
         let result : RestaurantVatReportEntity[]= await this.restaurantVatReportService.spGetRpRestaurantVat(
             restaurantVatReportQueryDTO.restaurant_id ,

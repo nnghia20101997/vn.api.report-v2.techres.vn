@@ -46,6 +46,13 @@ import { RestaurantInformationInAlolineReportModule } from "./order-lv1/restaura
 import { RestaurantMembershipCardLevelReportModule } from "./order-lv1/restaurant-membership-card-level-report/restaurant-membership-card-level-report.module";
 import { SupplierMaterialPriceChangeHistoriesReportModule } from "./order-lv1/supplier-material-price-change-histories-report/supplier-material-price-change-histories-report.module";
 import { RestaurantOrderDetailByFoodIdReportModule } from "./order-lv1/restaurant-order-detail-by-food-id-report/restaurant-order-detail-by-food-id-report.module";
+import { RestaurantOrderDataReportModule } from "./order-lv1/restaurant-order-data-report/restaurant-order-data-report.module";
+import { RestaurantProfitDebtAmountSummaryReportModule } from "./order-lv1/restaurant-profit-debt-amount-summary-report/restaurant-profit-debt-amount-summary-report.module";
+import { RestaurantRevenueSummaryReportModule } from "./order-lv1/restaurant-revenue-summary-report/restaurant-revenue-summary-report.module";
+import { RestaurantBusinessGrowthReportModule } from "./order-lv1/restaurant-business-growth-report/restaurant-business-growth-report.module";
+import { RestaurantProfitRealityReportModule } from "./order-lv1/restaurant-profit-reality-report/restaurant-profit-reality-report.module";
+import { RestaurantDebtReportModule } from "./order-lv1/restaurant-debt-report/restaurant-debt-report.module";
+import { OverviewBusinessGrowthReportModule } from "./order-lv1/overview-business-growth-report/overview-business-growth-report.module";
 
 @Module({
   imports: [
@@ -113,7 +120,14 @@ import { RestaurantOrderDetailByFoodIdReportModule } from "./order-lv1/restauran
     RestaurantInformationInAlolineReportModule,
     RestaurantMembershipCardLevelReportModule,
     SupplierMaterialPriceChangeHistoriesReportModule,
-    RestaurantOrderDetailByFoodIdReportModule
+    RestaurantOrderDetailByFoodIdReportModule,
+    RestaurantOrderDataReportModule,
+    RestaurantProfitDebtAmountSummaryReportModule,
+    RestaurantRevenueSummaryReportModule,
+    RestaurantBusinessGrowthReportModule,
+    RestaurantProfitRealityReportModule,
+    RestaurantDebtReportModule,
+    OverviewBusinessGrowthReportModule
   ],
   providers: [],
 })

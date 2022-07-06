@@ -14,7 +14,7 @@ export class SupplierMaterialPriceChangeHistoriesReportController {
     ) { }
 
     @Get("")
-    async getWarehouseSessionTotalImportExportAmount(@Query() supplierMaterialPriceChangeHistoriesReportQueryDTO : SupplierMaterialPriceChangeHistoriesReportQueryDTO, @Res() res: Response): Promise<any> {
+    async getSupplierMaterialPriceChangeHistories(@Query() supplierMaterialPriceChangeHistoriesReportQueryDTO : SupplierMaterialPriceChangeHistoriesReportQueryDTO, @Res() res: Response): Promise<any> {
         let response: ResponseData = new ResponseData();
         let result : SupplierMaterialPriceChangeHistoriesReportEntity[]= await this.supplierMaterialPriceChangeHistoriesReportService.spRpSupplierMaterialPriceChangeHistories(
             supplierMaterialPriceChangeHistoriesReportQueryDTO.restaurant_id ,

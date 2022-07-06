@@ -13,9 +13,9 @@ export class RestaurantOrderExtraChargeReportController {
     ) { }
 
     @Get("")
-    async getRpRestaurantRevenueByBranch(@Query() restaurantOrderExtraChargeReportQueryDTO : RestaurantOrderExtraChargeReportQueryDTO, @Res() res: Response): Promise<any> {
+    async getRpRestaurantOrderExtraCharge(@Query() restaurantOrderExtraChargeReportQueryDTO : RestaurantOrderExtraChargeReportQueryDTO, @Res() res: Response): Promise<any> {
         let response: ResponseData = new ResponseData();
-        let result : RestaurantOrderExtraChargeReportEntity[]= await this.restaurantOrderExtraChargeReportService.spGetRpRestaurantVat(
+        let result : RestaurantOrderExtraChargeReportEntity[]= await this.restaurantOrderExtraChargeReportService.spGetRpRestaurantOrderExtraCharge(
             restaurantOrderExtraChargeReportQueryDTO.restaurant_id ,
             restaurantOrderExtraChargeReportQueryDTO.restaurant_brand_id,
             restaurantOrderExtraChargeReportQueryDTO.branch_id,
