@@ -1,5 +1,9 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
+/**
+ *  Using: sp_g_rp_supplier_overview_report
+ */
+
 @Entity()
 export class SupplierOverviewReportEntity extends BaseEntity {
 

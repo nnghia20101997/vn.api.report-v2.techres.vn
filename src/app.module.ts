@@ -13,7 +13,13 @@ import { BranchModule } from "./branch/branch.module";
 import { RestaurantBrandModule } from "./restaurant-brand/restaurant-brand.module";
 import { RestaurantModule } from "./restaurant/restaurant.module";
 import { AuthenticationMiddleware } from "./utils.common/utils.middleware.common/utils.bearer-token.common";
+
 import { SupplierOverviewReportModule } from './supplier/supplier-overview-report/supplier-overview-report.module';
+import { SupplierOrderListReportModule } from './supplier/supplier-order-list-report/supplier-order-list-report.module';
+import { SupplierRevenueReportByTimeModule } from './supplier/supplier-revenue-report-by-time/supplier-revenue-report-by-time.module';
+import { SupplierWarehouseSesssionReportModule } from './supplier/supplier-warehouse-sesssion-report/supplier-warehouse-sesssion-report.module';
+import { SupplierWarehouseMaterialReportModule } from './supplier/supplier-warehouse-material-report/supplier-warehouse-material-report.module';
+
 import { AdminCustomerAlolineReportModule } from "./admin/admin-customer-aloline-report/admin-customer-aloline-report.module";
 import { AdminTopTenProductBestSellerDetailModule } from "./admin/admin-top-ten-product-best-seller-detail/admin-top-ten-product-best-seller-detail.module";
 import { AdminGravityProductBestSellerModule } from "./admin/admin-gravity-product-best-seller/admin-gravity-product-best-seller.module";
@@ -23,6 +29,7 @@ import { AdminBranchReportModule } from "./admin/admin-branch-report/admin-branc
 import { AdminTopBestSalerReportModule } from "./admin/admin-top-best-saler-report/admin-top-best-saler-report.module";
 import { AdminSalerDetailReportModule } from "./admin/admin-saler-detail-report/admin-saler-detail-report.module";
 import { AdminBestSalerGravityReportModule } from "./admin/admin-best-saler-gravity-report/admin-best-saler-gravity-report.module";
+
 
 @Module({
   imports: [
@@ -44,10 +51,8 @@ import { AdminBestSalerGravityReportModule } from "./admin/admin-best-saler-grav
     }),
 
     MongooseModule.forRoot(
-      `${process.env.DB_MONGO_CONNECTION}://${
-        process.env.DB_MONGO_USERNAME
-      }:${encodeURIComponent(process.env.DB_MONGO_PASSWORD)}@${
-        process.env.DB_MONGO_HOST
+      `${process.env.DB_MONGO_CONNECTION}://${process.env.DB_MONGO_USERNAME
+      }:${encodeURIComponent(process.env.DB_MONGO_PASSWORD)}@${process.env.DB_MONGO_HOST
       }:${process.env.DB_MONGO_PORT}/${process.env.DB_MONGO_NAME}`
     ),
     // MongooseModule.forRoot(`${process.env.DB_MONGO_CONNECTION}://${process.env.DB_USERNAME_LOGS}:${encodeURIComponent(process.env.DB_PASSWORD_LOGS)}@${process.env.DB_MONGO_HOST}:${process.env.DB_MONGO_PORT}/${process.env.DB_NAME_LOGS}`, {connectionName: 'log'}),
@@ -55,7 +60,13 @@ import { AdminBestSalerGravityReportModule } from "./admin/admin-best-saler-grav
     AuthModule,
     RestaurantModule,
     RestaurantBrandModule,
+
+    SupplierOrderListReportModule,
     SupplierOverviewReportModule,
+    SupplierRevenueReportByTimeModule,
+    SupplierWarehouseSesssionReportModule,
+    SupplierWarehouseMaterialReportModule,
+
     AdminAdvertisingRevenueModule,
     AdminCustomerAlolineReportModule,
     AdminTopTenProductBestSellerDetailModule,
