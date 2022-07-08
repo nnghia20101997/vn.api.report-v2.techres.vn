@@ -1,3 +1,4 @@
+
 export enum ReportTypeEnum {
   HOUR = 0, //Lấy theo Tời gian
   DAY = 1, //lấy theo ngày
@@ -12,3 +13,4 @@ export enum ReportTypeEnum {
   LAST_MONTH = 10, // lấy theo tháng trước
   LAST_YEAR = 11, //Lấy theo năm trước
 }
+
