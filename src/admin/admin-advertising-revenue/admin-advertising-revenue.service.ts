@@ -16,18 +16,18 @@ export class AdminAdvertisingRevenueService {
    *
    * @param fromDate
    * @param toDate
-   * @param report_Type
+   * @param groupByType
    * @returns
    */
 
   async spGRpAdminAdvertisingRevenue(
     fromDate: string,
     toDate: string,
-    report_Type: number
+    groupByType: number
   ): Promise<AdminAdvertisingRevenueEntity[]> {
     let result = await this.adminAdvertisingRevenueEntity.query(
       "CALL sp_g_rp_admin_advertising_revenue(?,?,?,@status,@message); SELECT @status AS status , @message AS message",
-      [fromDate, toDate, report_Type]
+      [fromDate, toDate, groupByType]
     );
     ExceptionStoreProcedure.validate(result);
     let data: AdminAdvertisingRevenueEntity[] =

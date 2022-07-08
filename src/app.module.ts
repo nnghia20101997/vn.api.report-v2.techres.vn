@@ -52,7 +52,7 @@ import { AdminBestSalerGravityReportModule } from "./admin/admin-best-saler-grav
 
     MongooseModule.forRoot(
       `${process.env.DB_MONGO_CONNECTION}://${process.env.DB_MONGO_USERNAME
-      }:${encodeURIComponent(process.env.DB_MONGO_PASSWORD)}@${process.env.DB_MONGO_HOST
+}:${encodeURIComponent(process.env.DB_MONGO_PASSWORD)}@${process.env.DB_MONGO_HOST
       }:${process.env.DB_MONGO_PORT}/${process.env.DB_MONGO_NAME}`
     ),
     // MongooseModule.forRoot(`${process.env.DB_MONGO_CONNECTION}://${process.env.DB_USERNAME_LOGS}:${encodeURIComponent(process.env.DB_PASSWORD_LOGS)}@${process.env.DB_MONGO_HOST}:${process.env.DB_MONGO_PORT}/${process.env.DB_NAME_LOGS}`, {connectionName: 'log'}),

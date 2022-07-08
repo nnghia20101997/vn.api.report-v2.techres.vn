@@ -3,12 +3,12 @@ import { JwtModule } from "@nestjs/jwt";
 import { PassportModule } from "@nestjs/passport";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AdminTopTenProductBestSellerDetailController } from "./admin-branch-report.controller";
-import { AdminBranchReporDataModelEntity } from "./admin-branch-report.entity/admin-branch-report.entity";
+import { AdminBranchReportDataModelEntity } from "./admin-branch-report.entity/admin-branch-report.entity";
 import { AdminBranchReportService } from "./admin-branch-report.service";
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([AdminBranchReporDataModelEntity]),
+        TypeOrmModule.forFeature([AdminBranchReportDataModelEntity]),
         PassportModule.register({ defaultStrategy: "jwt" }),
         JwtModule.register({
           secret: process.env.SECRET_TOKEN,

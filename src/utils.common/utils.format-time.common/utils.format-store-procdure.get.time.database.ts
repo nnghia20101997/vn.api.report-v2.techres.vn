@@ -96,8 +96,7 @@ export class StoreProcedureGetTimeDatabase {
           to_date = moment().endOf("month").add(1, "day").format("YYYY-MM-DD");
           group_type = groupByTimeEnum.GROUP_MONTH;
           break;
-
-        case reportTypeEnum.YEAR:
+case reportTypeEnum.YEAR:
           from_date = moment().startOf("year").format("YYYY-MM-DD");
           to_date = moment().endOf("year").add(1, "day").format("YYYY-MM-DD");
           group_type = groupByTimeEnum.GROUP_MONTH;
@@ -196,7 +195,7 @@ export class StoreProcedureGetTimeDatabase {
 
         case this.time_type = reportTypeEnum.DAY:
           from_date = moment(dateTime, 'DD/MM/YYYY')
-            .format("YYYY-MM-DD");
+.format("YYYY-MM-DD");
           to_date = moment(dateTime, 'DD/MM/YYYY')
             .add(1, "day")
             .format("YYYY-MM-DD");
@@ -287,7 +286,7 @@ export class StoreProcedureGetTimeDatabase {
           break;
 
         case reportTypeEnum.LAST_YEAR:
-          from_date = moment(dateTime, 'DD/MM/YYYY')
+from_date = moment(dateTime, 'DD/MM/YYYY')
             .startOf("year")
             .subtract(1, "year")
             .format("YYYY-MM-DD");
