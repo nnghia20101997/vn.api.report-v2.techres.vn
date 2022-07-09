@@ -1,5 +1,4 @@
-
-export enum ReportTypeEnum {
+export enum reportTypeEnum {
   HOUR = 0, //Lấy theo Tời gian
   DAY = 1, //lấy theo ngày
   WEEK = 2, // lấy theo tuần
@@ -9,8 +8,7 @@ export enum ReportTypeEnum {
   THREE_YEARS = 6, // lấy theo 3 năm gần nhất
   ALL_MONTHS = 7, // lấy tất cả thời gian
   ALL_YEAR = 8, // lấy tất cả thời gian
-  YESTERDAY = 9, // lấy theo ngày hôm qua
-  LAST_MONTH = 10, // lấy theo tháng trước
-  LAST_YEAR = 11, //Lấy theo năm trước
+  YESTERDAY = 9,// lấy theo ngày hôm qua
+  LAST_MONTH = 10,// lấy theo tháng trước
+  LAST_YEAR = 11 //Lấy theo năm trước
 }
-

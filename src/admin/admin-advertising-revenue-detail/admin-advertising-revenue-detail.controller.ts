@@ -7,8 +7,11 @@ import {
   UsePipes,
   ValidationPipe,
 } from "@nestjs/common";
+import console from "console";
 import { Response } from "express";
 import { StoreProcedureGetTimeDatabase } from "src/utils.common/utils.format-time.common/utils.format-store-procdure.get.time.database";
+import { UtilsDate } from "src/utils.common/utils.format-time.common/utils.format-time.common";
+import { GetTimeDataBase } from "src/utils.common/utils.format-time.common/utils.get.time.database";
 import { ResponseData } from "src/utils.common/utils.response.common/utils.response.common";
 import { AdminAdvertisingRevenueDetailQueryDTO } from "./admin-advertising-revenue-detail.dto/admin-advertising-revenue-detail.query.dto";
 import { AdminAdvertisingRevenueDetailDataModelEntity } from "./admin-advertising-revenue-detail.entity/admin-advertising-revenue-detail.entity";
@@ -29,19 +32,36 @@ export class AdminAdvertisingRevenueDetailController {
     @Res() res: Response
   ): Promise<any> {
     let response: ResponseData = new ResponseData();
+    let fromDate = "";
+    let toDate = "";
+    let groupByType = 2;
 
-    let time = new StoreProcedureGetTimeDatabase(
-      adminAdvertisingRevenueDetailQueryDTO.report_type
-    ).getTimeType();
-
-    console.log("time", time.from_date, time.to_date, time.group_type);
+    if (
+      adminAdvertisingRevenueDetailQueryDTO.from_date == "" ||
+      adminAdvertisingRevenueDetailQueryDTO.to_date == ""
+    ) {
+      let reportTime: GetTimeDataBase = new StoreProcedureGetTimeDatabase(
+        adminAdvertisingRevenueDetailQueryDTO.report_type
+      ).getTimeReport();
+      fromDate = reportTime.from_date;
+      toDate = reportTime.to_date;
+      groupByType = reportTime.group_type;
+    } else {
+      
+      fromDate = UtilsDate.formatDateInsertDatabase(
+        adminAdvertisingRevenueDetailQueryDTO.from_date
+      );
+      toDate = UtilsDate.formatDateInsertDatabase(
+        adminAdvertisingRevenueDetailQueryDTO.to_date
+      );
+    }
 
     let result: AdminAdvertisingRevenueDetailDataModelEntity[] =
       await this.adminAdvertisingRevenueDetailService.spGRpAdminAdvertisingRevenueDetail(
         adminAdvertisingRevenueDetailQueryDTO.branch_id,
-        time.group_type,
-        time.from_date,
-        time.to_date,
+        groupByType,
+        fromDate,
+        toDate,
         adminAdvertisingRevenueDetailQueryDTO._offset,
         adminAdvertisingRevenueDetailQueryDTO._limit
       );

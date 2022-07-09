@@ -96,7 +96,7 @@ export class StoreProcedureGetTimeDatabase {
           to_date = moment().endOf("month").add(1, "day").format("YYYY-MM-DD");
           group_type = groupByTimeEnum.GROUP_MONTH;
           break;
-case reportTypeEnum.YEAR:
+        case reportTypeEnum.YEAR:
           from_date = moment().startOf("year").format("YYYY-MM-DD");
           to_date = moment().endOf("year").add(1, "day").format("YYYY-MM-DD");
           group_type = groupByTimeEnum.GROUP_MONTH;
@@ -185,30 +185,28 @@ case reportTypeEnum.YEAR:
     if (listTimeType.includes(Number(this.time_type))) {
       switch (Number(this.time_type)) {
         case reportTypeEnum.HOUR:
-          from_date = moment(dateTime, 'DD/MM/YYYY')
-            .format("YYYY-MM-DD");
-          to_date = moment(dateTime, 'DD/MM/YYYY')
+          from_date = moment(dateTime, "DD/MM/YYYY").format("YYYY-MM-DD");
+          to_date = moment(dateTime, "DD/MM/YYYY")
             .add(1, "day")
             .format("YYYY-MM-DD");
           group_type = groupByTimeEnum.GROUP_HOUR;
           break;
 
-        case this.time_type = reportTypeEnum.DAY:
-          from_date = moment(dateTime, 'DD/MM/YYYY')
-.format("YYYY-MM-DD");
-          to_date = moment(dateTime, 'DD/MM/YYYY')
+        case (this.time_type = reportTypeEnum.DAY):
+          from_date = moment(dateTime, "DD/MM/YYYY").format("YYYY-MM-DD");
+          to_date = moment(dateTime, "DD/MM/YYYY")
             .add(1, "day")
             .format("YYYY-MM-DD");
           group_type = groupByTimeEnum.GROUP_HOUR;
           break;
 
         case reportTypeEnum.WEEK:
-          from_date = moment(dateTime, 'DD/MM/YYYY')
+          from_date = moment(dateTime, "DD/MM/YYYY")
             .startOf("week")
             .isoWeekday(1)
             .add(7, "day")
             .format("YYYY-MM-DD");
-          to_date = moment(dateTime, 'DD/MM/YYYY')
+          to_date = moment(dateTime, "DD/MM/YYYY")
             .startOf("week")
             .isoWeekday(1)
             .add(7, "day")
@@ -218,10 +216,10 @@ case reportTypeEnum.YEAR:
           break;
 
         case reportTypeEnum.MONTH:
-          from_date = moment(dateTime, 'DD/MM/YYYY')
+          from_date = moment(dateTime, "DD/MM/YYYY")
             .startOf("month")
             .format("YYYY-MM-DD");
-          to_date = moment(dateTime, 'DD/MM/YYYY')
+          to_date = moment(dateTime, "DD/MM/YYYY")
             .endOf("month")
             .add(1, "day")
             .format("YYYY-MM-DD");
@@ -229,11 +227,11 @@ case reportTypeEnum.YEAR:
           break;
 
         case reportTypeEnum.NEAREST_THREE_MONTHS:
-          from_date = moment(dateTime, 'DD/MM/YYYY')
+          from_date = moment(dateTime, "DD/MM/YYYY")
             .startOf("month")
             .subtract(2, "month")
             .format("YYYY-MM-DD");
-          to_date = moment(dateTime, 'DD/MM/YYYY')
+          to_date = moment(dateTime, "DD/MM/YYYY")
             .endOf("month")
             .add(1, "day")
             .format("YYYY-MM-DD");
@@ -241,10 +239,10 @@ case reportTypeEnum.YEAR:
           break;
 
         case reportTypeEnum.YEAR:
-          from_date = moment(dateTime, 'DD/MM/YYYY')
+          from_date = moment(dateTime, "DD/MM/YYYY")
             .startOf("year")
             .format("YYYY-MM-DD");
-          to_date = moment(dateTime, 'DD/MM/YYYY')
+          to_date = moment(dateTime, "DD/MM/YYYY")
             .endOf("year")
             .add(1, "day")
             .format("YYYY-MM-DD");
@@ -252,11 +250,11 @@ case reportTypeEnum.YEAR:
           break;
 
         case reportTypeEnum.THREE_YEARS:
-          from_date = moment(dateTime, 'DD/MM/YYYY')
+          from_date = moment(dateTime, "DD/MM/YYYY")
             .startOf("year")
             .subtract(2, "year")
             .format("YYYY-MM-DD");
-          to_date = moment(dateTime, 'DD/MM/YYYY')
+          to_date = moment(dateTime, "DD/MM/YYYY")
             .endOf("year")
             .add(1, "day")
             .format("YYYY-MM-DD");
@@ -264,20 +262,19 @@ case reportTypeEnum.YEAR:
           break;
 
         case reportTypeEnum.YESTERDAY:
-          from_date = moment(dateTime, 'DD/MM/YYYY')
+          from_date = moment(dateTime, "DD/MM/YYYY")
             .subtract(1, "day")
             .format("YYYY-MM-DD");
-          to_date = moment(dateTime, 'DD/MM/YYYY')
-            .format("YYYY-MM-DD");
+          to_date = moment(dateTime, "DD/MM/YYYY").format("YYYY-MM-DD");
           group_type = groupByTimeEnum.GROUP_HOUR;
           break;
 
         case reportTypeEnum.LAST_MONTH:
-          from_date = moment(dateTime, 'DD/MM/YYYY')
+          from_date = moment(dateTime, "DD/MM/YYYY")
             .startOf("month")
             .subtract(1, "month")
             .format("YYYY-MM-DD");
-          to_date = moment(dateTime, 'DD/MM/YYYY')
+          to_date = moment(dateTime, "DD/MM/YYYY")
             .subtract(1, "month")
             .endOf("month")
             .add(1, "day")
@@ -286,21 +283,34 @@ case reportTypeEnum.YEAR:
           break;
 
         case reportTypeEnum.LAST_YEAR:
-from_date = moment(dateTime, 'DD/MM/YYYY')
+          from_date = moment(dateTime, "DD/MM/YYYY")
             .startOf("year")
             .subtract(1, "year")
             .format("YYYY-MM-DD");
-          to_date = moment(dateTime, 'DD/MM/YYYY')
+          to_date = moment(dateTime, "DD/MM/YYYY")
             .endOf("year")
             .subtract(1, "year")
             .add(1, "day")
             .format("YYYY-MM-DD");
           group_type = groupByTimeEnum.GROUP_MONTH;
           break;
+
+          case reportTypeEnum.ALL_MONTHS:
+          from_date = "";
+          to_date = "";
+          group_type = groupByTimeEnum.GROUP_MONTH;
+          break;
+
+        case reportTypeEnum.ALL_YEAR:
+          from_date = "";
+          to_date = "";
+          group_type = groupByTimeEnum.GROUP_YEAR;
+          break;
+
         default:
           return new GetTimeDataBase(from_date, to_date, -1);
       }
-      return new GetTimeDataBase(from_date, to_date, group_type)
+      return new GetTimeDataBase(from_date, to_date, group_type);
     } else {
       return new GetTimeDataBase(from_date, to_date, -1);
     }
