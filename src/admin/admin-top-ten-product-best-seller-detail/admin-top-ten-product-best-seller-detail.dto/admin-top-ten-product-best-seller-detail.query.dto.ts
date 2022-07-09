@@ -1,10 +1,15 @@
+import {
+  IsNotEmpty,
+  IsNotEmptyString,
+} from "src/utils.common/utils.decorator.common/utils.decorator.common";
+
 export class AdminTopTenProductBestSellerDetailQueryDTO {
-
-    readonly from_date: string = "";
-
-    readonly to_date: string = "";
-
-    readonly _offset: number = -1;
-
-    readonly _limit: number = -1;
+  @IsNotEmptyString()
+  readonly from_date: string = "";
+  @IsNotEmptyString()
+  readonly to_date: string = "";
+  @IsNotEmpty()
+  readonly _offset: number = 0;
+  @IsNotEmpty()
+  readonly _limit: number = 500;
 }
