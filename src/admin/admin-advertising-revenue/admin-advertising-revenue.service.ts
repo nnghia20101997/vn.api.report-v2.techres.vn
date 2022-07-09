@@ -29,6 +29,7 @@ export class AdminAdvertisingRevenueService {
       "CALL sp_g_rp_admin_advertising_revenue(?,?,?,@status,@message); SELECT @status AS status , @message AS message",
       [fromDate, toDate, groupByType]
     );
+    console.log("time", fromDate, toDate, groupByType);
     ExceptionStoreProcedure.validate(result);
     let data: AdminAdvertisingRevenueEntity[] =
       new StoreProcedureResult<AdminAdvertisingRevenueEntity>().getResultList(

@@ -179,7 +179,7 @@ export function IsInt(validationOptions?: ValidationOptions) {
   };
 }
 
-export function Maxlength20(validationOptions?: ValidationOptions) {
+export function MaxLength20(validationOptions?: ValidationOptions) {
   return (object: unknown, propertyName: string) => {
    
     registerDecorator({

@@ -9,6 +9,7 @@ export class AdminBranchReportResponse {
   phone_number: string;
 
   address_full_text: string;
+  
 
   constructor(adminBranchReportDataModelEntity?: AdminBranchReportDataModelEntity) {
     this.id = adminBranchReportDataModelEntity ? +adminBranchReportDataModelEntity.id : 0;

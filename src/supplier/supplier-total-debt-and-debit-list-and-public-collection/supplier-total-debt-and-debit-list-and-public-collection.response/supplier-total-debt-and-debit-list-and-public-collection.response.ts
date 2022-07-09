@@ -4,27 +4,32 @@ import { SupplierTotalDebtAndDebitListAndPublicCollectionOutputEntity } from "..
 export class SupplierTotalDebtAndDebitListAndPublicCollectionResponse {
   listData: SupplierTotalDebtAndDebitListAndPublicCollectionDataModelEntity[];
 
-  supplierTotalDebtAndDebitListAndPublicCollectionOutputEntity: SupplierTotalDebtAndDebitListAndPublicCollectionOutputEntity;
+  total_to_pay_debt_amount: number = 0;
+  total_receivable_debt_amount: number = 0;
 
   constructor(
     listData?: SupplierTotalDebtAndDebitListAndPublicCollectionDataModelEntity[],
     supplierTotalDebtAndDebitListAndPublicCollectionOutputEntity?: SupplierTotalDebtAndDebitListAndPublicCollectionOutputEntity
   ) {
     this.listData = listData;
-    this.supplierTotalDebtAndDebitListAndPublicCollectionOutputEntity =
-      supplierTotalDebtAndDebitListAndPublicCollectionOutputEntity;
+
+    this.total_to_pay_debt_amount =
+      supplierTotalDebtAndDebitListAndPublicCollectionOutputEntity.total_to_pay_debt_amount;
+
+    this.total_receivable_debt_amount =
+      supplierTotalDebtAndDebitListAndPublicCollectionOutputEntity.total_receivable_debt_amount;
   }
 
-//   public mapToList(
-//     data: SupplierTotalDebtAndDebitListAndPublicCollectionDataModelEntity[]
-//   ) {
-//     let response: SupplierTotalDebtAndDebitListAndPublicCollectionResponse[] =
-//       [];
-//     data.forEach((e) => {
-//       response.push(
-//         new SupplierTotalDebtAndDebitListAndPublicCollectionResponse(e)
-//       );
-//     });
-//     return response;
-//   }
+  //   public mapToList(
+  //     data: SupplierTotalDebtAndDebitListAndPublicCollectionDataModelEntity[]
+  //   ) {
+  //     let response: SupplierTotalDebtAndDebitListAndPublicCollectionResponse[] =
+  //       [];
+  //     data.forEach((e) => {
+  //       response.push(
+  //         new SupplierTotalDebtAndDebitListAndPublicCollectionResponse(e)
+  //       );
+  //     });
+  //     return response;
+  //   }
 }
