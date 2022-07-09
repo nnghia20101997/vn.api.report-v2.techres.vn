@@ -13,16 +13,11 @@ export enum TypeUser {
    SALER = 5
 }
 
-
 export enum TypeSalerLog {
    TYPE_MAX = 4,
    TYPE_MIN = -1,
 }
 
-
 export enum ResetPassword {
    NEW_PASS = '0000'
-  
 }
-
-

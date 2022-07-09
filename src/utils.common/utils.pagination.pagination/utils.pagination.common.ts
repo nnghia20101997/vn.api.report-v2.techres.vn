@@ -22,4 +22,13 @@ export class Pagination {
         }
     }
 
+     /**
+     * The limit for this pagination object. The limit determines the maximum amount of results to return.
+     *
+     * @return the limit
+     */
+    public getLimit(): number {
+        return typeof this.limit == 'string' ? parseInt(this.limit) : this.limit;
+    }
+
 }
