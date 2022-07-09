@@ -1,0 +1,10 @@
+import { ValidationOptions } from 'class-validator';
+export declare const RequestHeaderVerifyApiKey: any;
+export declare const GetTechresSalerFromToken: any;
+export declare const GetAdminFromToken: any;
+export declare const GetAdminOrSalerFromToken: any;
+export declare function IsNotEmptyString(validationOptions?: ValidationOptions): (object: unknown, propertyName: string) => void;
+export declare function IsNotEmpty(validationOptions?: ValidationOptions): (object: unknown, propertyName: string) => void;
+export declare function IsInt(validationOptions?: ValidationOptions): (object: unknown, propertyName: string) => void;
+export declare function MaxLength20(validationOptions?: ValidationOptions): (object: unknown, propertyName: string) => void;
+export declare function IsEmptyArray(validationOptions?: ValidationOptions): (object: unknown, propertyName: string) => void;

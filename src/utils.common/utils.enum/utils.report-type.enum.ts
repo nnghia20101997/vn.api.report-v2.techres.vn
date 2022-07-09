@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-export enum reportTypeEnum {
-=======
 
 export enum reportTypeEnum {
 
->>>>>>> e23075c8f86973ec5376a28277c8b054a7d21df7
   HOUR = 0, //Lấy theo Tời gian
   DAY = 1, //lấy theo ngày
   WEEK = 2, // lấy theo tuần
