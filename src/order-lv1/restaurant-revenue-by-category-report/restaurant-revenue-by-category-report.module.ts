@@ -11,11 +11,11 @@ import { RestaurantRevenueByCategoryReportEntity } from './restaurant-revenue-by
   ]),
   PassportModule.register({ defaultStrategy: 'jwt' }),
   JwtModule.register({
-    secret : process.env.SECRET_TOKEN,
+    secret: process.env.SECRET_TOKEN,
   }),
-  RestaurantRevenueByCategoryReportModule
-],
+    RestaurantRevenueByCategoryReportModule
+  ],
   providers: [RestaurantRevenueByCategoryReportService],
   controllers: [RestaurantRevenueByCategoryReportController]
 })
-export class RestaurantRevenueByCategoryReportModule {}
+export class RestaurantRevenueByCategoryReportModule { }

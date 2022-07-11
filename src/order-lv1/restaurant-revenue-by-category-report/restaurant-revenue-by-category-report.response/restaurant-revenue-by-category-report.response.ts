@@ -25,7 +25,7 @@ export class RestaurantRevenueByCategoryReportResponse{
     }
 
      public mapToList(data: RestaurantRevenueByCategoryReportEntity[]) {
-      let response: RestaurantRevenueByCategoryReportEntity[] = [];
+      let response: RestaurantRevenueByCategoryReportResponse[] = [];
       data.forEach((e) => {
         response.push(new RestaurantRevenueByCategoryReportResponse(e));
       });

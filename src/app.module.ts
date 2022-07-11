@@ -30,16 +30,10 @@ import { AdminTotalAllLocationWithBestSalesResultsReportModule } from "./admin/a
 import { SupplierTotalDebtAndDebitListAndPublicCollectionModule } from "./supplier/supplier-total-debt-and-debit-list-and-public-collection/supplier-total-debt-and-debit-list-and-public-collection.module";
 import { SupplierOrderTotalOrderByTimeModule } from "./supplier/supplier-order-total-order-by-time/supplier-order-total-order-by-time.module";
 import { SupplierCategoryDetailModule } from "./supplier/supplier-category-detail/supplier-category-detail.module";
-import { BusinessResultReportModule } from "./order-lv1/business-result-report/business-result-report.module";
 import { CurrentDayReportModule } from "./order-lv1/current-day-report/current-day-report.module";
-import { CustomerUsePointsReportModule } from "./order-lv1/customer-use-points-report/customer-use-points-report.module";
-import { RestaurantCashDetailReportModule } from "./order-lv1/restaurant-cash-detail-report/restaurant-cash-detail-report.module";
-import { RestaurantCustomerReportModule } from "./order-lv1/restaurant-customer-report/restaurant-customer-report.module";
 import { RestaurantDiscountFromOrderReportModule } from "./order-lv1/restaurant-discount-from-order-report/restaurant-discount-from-order-report.module";
-import { RestaurantEmployeeTargetReportModule } from "./order-lv1/restaurant-employee-target-report/restaurant-employee-target-report.module";
-import { RestaurantOrderExtraChargeReportModule } from "./order-lv1/restaurant-order-extra-charge-report/restaurant-order-extra-charge-report.module";
-import { RestaurantRevenueByCategoryReportModule } from "./order-lv1/restaurant-revenue-by-category-report/restaurant-revenue-by-category-report.module";
 import { RestaurantVatReportModule } from "./order-lv1/restaurant-vat-report/restaurant-vat-report.module";
+<<<<<<< Tan_V2
 import { CustomerAccumulatePointsReportModule } from "./order-lv1/customer-accumulate-points-report/customer-accumulate-points-report.module";
 import { WarehouseSessionTotalImportExportAmountReportModule } from "./order-lv1/warehouse-session-total-import-export-amount-report/warehouse-session-total-import-export-amount-report.module";
 import { RestaurantInformationInAlolineReportModule } from "./order-lv1/restaurant-information-in-aloline-report/restaurant-information-in-aloline-report.module";
@@ -53,6 +47,13 @@ import { RestaurantBusinessGrowthReportModule } from "./order-lv1/restaurant-bus
 import { RestaurantProfitRealityReportModule } from "./order-lv1/restaurant-profit-reality-report/restaurant-profit-reality-report.module";
 import { RestaurantDebtReportModule } from "./order-lv1/restaurant-debt-report/restaurant-debt-report.module";
 import { OverviewBusinessGrowthReportModule } from "./order-lv1/overview-business-growth-report/overview-business-growth-report.module";
+=======
+import { RestaurantRevenueByEmployeeReportModule } from "./order-lv1/restaurant-revenue-by-employee-report/restaurant-revenue-by-employee-report.module";
+import { RestaurantDetailFoodReportModule } from "./order-lv1/restaurant-detail-food-report/restaurant-detail-food-report.module";
+import { RestaurantRevenueByFoodReportModule } from "./order-lv1/restaurant-revenue-by-food-report/restaurant-revenue-by-food-report.module";
+import { RestaurantCashDetailReportModule } from "./order-lv1/restaurant-cash-detail-report/restaurant-cash-detail-report.module";
+import { RestaurantRevenueByCategoryReportModule } from "./order-lv1/restaurant-revenue-by-category-report/restaurant-revenue-by-category-report.module";
+>>>>>>> local
 
 @Module({
   imports: [
@@ -105,12 +106,10 @@ import { OverviewBusinessGrowthReportModule } from "./order-lv1/overview-busines
     SupplierTotalDebtAndDebitListAndPublicCollectionModule,
     SupplierOrderTotalOrderByTimeModule,
     SupplierCategoryDetailModule,
-    BusinessResultReportModule,
+
     CurrentDayReportModule,
-    CustomerUsePointsReportModule,
-    RestaurantCashDetailReportModule,
-    RestaurantCustomerReportModule,
     RestaurantDiscountFromOrderReportModule,
+<<<<<<< Tan_V2
     RestaurantEmployeeTargetReportModule,
     RestaurantOrderExtraChargeReportModule,
     RestaurantRevenueByCategoryReportModule,
@@ -128,6 +127,15 @@ import { OverviewBusinessGrowthReportModule } from "./order-lv1/overview-busines
     RestaurantProfitRealityReportModule,
     RestaurantDebtReportModule,
     OverviewBusinessGrowthReportModule
+=======
+    RestaurantVatReportModule,
+    RestaurantRevenueByEmployeeReportModule,
+    RestaurantDetailFoodReportModule,
+    RestaurantRevenueByFoodReportModule,
+    RestaurantCashDetailReportModule,
+    RestaurantRevenueByCategoryReportModule
+
+>>>>>>> local
   ],
   providers: [],
 })

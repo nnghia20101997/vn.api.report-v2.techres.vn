@@ -9,36 +9,36 @@ import { RestaurantDiscountFromOrderReportEntity } from './restaurant-discount-f
 export class RestaurantDiscountFromOrderReportService {
     @InjectRepository(RestaurantDiscountFromOrderReportEntity)
     private restaurantDiscountFromOrderReportEntity: Repository<RestaurantDiscountFromOrderReportEntity>
-    
 
-     /**
-   *@param restaurantId
-   * @param restaurantBrandId
-   * @param branchId
-   * @param groupByType
-   * @param fromDateString
-   * @param toDateString
-   * @returns
-   */
+
+    /**
+  *@param restaurantId
+  * @param restaurantBrandId
+  * @param branchId
+  * @param groupByType
+  * @param fromDateString
+  * @param toDateString
+  * @returns
+  */
     async spGetRpRestaurantDiscountFromOrder(
-        restaurantId : number , 
-        restaurantBrandId : number ,
-        branchId : number ,
-        groupByType : number ,  
-        fromDateString : string , 
-        toDateString : string
-        ): Promise<RestaurantDiscountFromOrderReportEntity[]> {
+        restaurantId: number,
+        restaurantBrandId: number,
+        branchId: number,
+        groupByType: number,
+        fromDateString: string,
+        toDateString: string
+    ): Promise<RestaurantDiscountFromOrderReportEntity[]> {
         let result = await this.restaurantDiscountFromOrderReportEntity.query('CALL sp_get_rp_restaurant_discount_from_order(?,?,?,?,?,?,@status,@message); SELECT @status AS status , @message AS message',
-        [
-            restaurantId,
-            restaurantBrandId,
-            branchId,
-            groupByType,
-            fromDateString,
-            toDateString
-        ]);
+            [
+                restaurantId,
+                restaurantBrandId,
+                branchId,
+                groupByType,
+                fromDateString,
+                toDateString
+            ]);
         ExceptionStoreProcedure.validate(result);
-        let data : RestaurantDiscountFromOrderReportEntity[] = new StoreProcedureResult<RestaurantDiscountFromOrderReportEntity>().getResultList(result)
-        return data ;
+        let data: RestaurantDiscountFromOrderReportEntity[] = new StoreProcedureResult<RestaurantDiscountFromOrderReportEntity>().getResultList(result)
+        return data;
     }
 }

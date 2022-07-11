@@ -7,41 +7,41 @@ import { RestaurantRevenueByCategoryReportEntity } from './restaurant-revenue-by
 
 @Injectable()
 export class RestaurantRevenueByCategoryReportService {
-    
+
     @InjectRepository(RestaurantRevenueByCategoryReportEntity)
     private restaurantRevenueByCategoryReportEntity: Repository<RestaurantRevenueByCategoryReportEntity>
-    
 
-     /**
-   *@param restaurantId
-   * @param restaurantBrandId
-   * @param branchId
-   * @param categoryType
-   * @param fromDateString
-   * @param toDateString
-   * @returns
-   */
+
+    /**
+  *@param restaurantId
+  * @param restaurantBrandId
+  * @param branchId
+  * @param categoryType
+  * @param fromDateString
+  * @param toDateString
+  * @returns
+  */
     async spGetRpRestaurantRevenueByCategory(
-        restaurantId : number , 
-        restaurantBrandId : number ,
-        branchId : number ,
-        categoryType : number ,
-        fromDateString : string , 
-        toDateString : string  
-      
-        ): Promise<RestaurantRevenueByCategoryReportEntity[]> {
+        restaurantId: number,
+        restaurantBrandId: number,
+        branchId: number,
+        categoryType: number,
+        fromDateString: string,
+        toDateString: string
+
+    ): Promise<RestaurantRevenueByCategoryReportEntity[]> {
         let result = await this.restaurantRevenueByCategoryReportEntity.query('CALL sp_get_rp_restaurant_revenue_by_category(?,?,?,?,?,?,@status,@message); SELECT @status AS status , @message AS message',
-        [
-            restaurantId,
-            restaurantBrandId,
-            branchId,
-            categoryType,
-            fromDateString,
-            toDateString
-           
-        ]);
+            [
+                restaurantId,
+                restaurantBrandId,
+                branchId,
+                categoryType,
+                fromDateString,
+                toDateString
+
+            ]);
         ExceptionStoreProcedure.validate(result);
-        let data : RestaurantRevenueByCategoryReportEntity[] = new StoreProcedureResult<RestaurantRevenueByCategoryReportEntity>().getResultList(result)
-        return data ;
+        let data: RestaurantRevenueByCategoryReportEntity[] = new StoreProcedureResult<RestaurantRevenueByCategoryReportEntity>().getResultList(result)
+        return data;
     }
 }

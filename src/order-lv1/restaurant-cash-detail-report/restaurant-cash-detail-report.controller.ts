@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Get,
-  HttpStatus,
-  Query,
-  Res,
-  UsePipes,
-  ValidationPipe,
-} from "@nestjs/common";
+import { Controller,Get,HttpStatus,Query,Res,UsePipes,ValidationPipe,} from "@nestjs/common";
 import { Response } from "express";
 import { ResponseData } from "src/utils.common/utils.response.common/utils.response.common";
 import { StoreProcedureOutputResultInterface } from "src/utils.common/utils.store-procedure-result.common/utils.store-procedure-output-result.interface.common";

@@ -13,10 +13,10 @@ export class RestaurantRevenueByCategoryReportController {
     ) { }
 
     @Get("")
-    async getRpRestaurantRevenueByCategory(@Query() restaurantRevenueByCategoryReportQueryDTO : RestaurantRevenueByCategoryReportQueryDTO, @Res() res: Response): Promise<any> {
+    async getRpRestaurantRevenueByCategory(@Query() restaurantRevenueByCategoryReportQueryDTO: RestaurantRevenueByCategoryReportQueryDTO, @Res() res: Response): Promise<any> {
         let response: ResponseData = new ResponseData();
-        let result : RestaurantRevenueByCategoryReportEntity[]= await this.restaurantRevenueByCategoryReportService.spGetRpRestaurantRevenueByCategory(
-            restaurantRevenueByCategoryReportQueryDTO.restaurant_id ,
+        let result: RestaurantRevenueByCategoryReportEntity[] = await this.restaurantRevenueByCategoryReportService.spGetRpRestaurantRevenueByCategory(
+            restaurantRevenueByCategoryReportQueryDTO.restaurant_id,
             restaurantRevenueByCategoryReportQueryDTO.restaurant_brand_id,
             restaurantRevenueByCategoryReportQueryDTO.branch_id,
             restaurantRevenueByCategoryReportQueryDTO.category_type,
@@ -24,7 +24,7 @@ export class RestaurantRevenueByCategoryReportController {
             restaurantRevenueByCategoryReportQueryDTO.to_date_string
 
         );
-            response.setData(new RestaurantRevenueByCategoryReportResponse().mapToList(result));
-            return res.status(HttpStatus.OK).send(response);
+        response.setData(new RestaurantRevenueByCategoryReportResponse().mapToList(result));
+        return res.status(HttpStatus.OK).send(response);
     }
 }
