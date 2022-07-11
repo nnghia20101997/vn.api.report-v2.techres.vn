@@ -17,6 +17,7 @@ import { SupplierOrderListReportService } from './supplier-order-list-report.ser
 import { SupplierOrderTotalRecordReportResponse } from './supplier-order-list-report.response/supplier-order-total-record-list-report.response';
 import { StoreProcedureResultInterface } from 'src/utils.common/utils.store-procedure-result.common/utils.store-procedure-result.interface.common';
 import { UtilsDate } from 'src/utils.common/utils.format-time.common/utils.format-time.common';
+import { BaseListResponseData } from 'src/utils.common/utils.response.common/utils.base-list.response.common';
 
 @Controller('api/supplier-order-list-report')
 export class SupplierOrderListReportController {
@@ -41,9 +42,10 @@ export class SupplierOrderListReportController {
                 supplierOrderListReportQueryDto.key_search,
                 pagination
             );
-
+        let supplierOrderListReportResponse: SupplierOrderListReportResponse[] = new SupplierOrderListReportResponse().mapToList(supplierOrderListReport.list);
+        let result: BaseListResponseData<SupplierOrderListReportResponse> = new BaseListResponseData(supplierOrderListReportResponse, pagination.getLimit(), supplierOrderListReport.total_record);
         response.setData(
-            new SupplierOrderTotalRecordReportResponse(supplierOrderListReport.total_record, pagination.limit, new SupplierOrderListReportResponse().mapToList(supplierOrderListReport.list))
+            result
         );
         return res.status(HttpStatus.OK).send(response);
     }
