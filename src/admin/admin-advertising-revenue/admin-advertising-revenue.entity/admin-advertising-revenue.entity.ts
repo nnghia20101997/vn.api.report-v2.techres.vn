@@ -6,5 +6,5 @@ export class AdminAdvertisingRevenueEntity {
     report_time: string;
 
     @Column({ default: 0 })
-    total_price: number;
+    total_revenue: number;
 }

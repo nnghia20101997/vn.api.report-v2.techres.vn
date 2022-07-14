@@ -5,4 +5,8 @@ export class AdminGravityProductBestSellerQueryDTO {
   readonly from_date: string = "";
   @IsNotEmptyString()
   readonly to_date: string = "";
+  @IsNotEmptyString()
+  readonly page: number = 1;
+  @IsNotEmptyString()
+  readonly limit: number = 500;
 }

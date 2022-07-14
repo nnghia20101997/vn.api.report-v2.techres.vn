@@ -9,7 +9,7 @@ export class AdminTotalRevenueProductsResponse {
 
   total_product: number;
 
-  total_amount: number;
+  total_revenue: number;
 
   constructor(
     adminTotalRevenueProductsDataModelEntity?: AdminTotalRevenueProductsDataModelEntity
@@ -26,8 +26,8 @@ export class AdminTotalRevenueProductsResponse {
     this.total_product = adminTotalRevenueProductsDataModelEntity
       ? +adminTotalRevenueProductsDataModelEntity.total_product
       : 0;
-    this.total_amount = adminTotalRevenueProductsDataModelEntity
-      ? +adminTotalRevenueProductsDataModelEntity.total_amount
+    this.total_revenue = adminTotalRevenueProductsDataModelEntity
+      ? +adminTotalRevenueProductsDataModelEntity.total_revenue
       : 0;
   }
 

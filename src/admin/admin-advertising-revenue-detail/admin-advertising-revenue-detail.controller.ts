@@ -7,16 +7,17 @@ import {
   UsePipes,
   ValidationPipe,
 } from "@nestjs/common";
-import console from "console";
 import { Response } from "express";
 import { StoreProcedureGetTimeDatabase } from "src/utils.common/utils.format-time.common/utils.format-store-procdure.get.time.database";
-import { UtilsDate } from "src/utils.common/utils.format-time.common/utils.format-time.common";
 import { GetTimeDataBase } from "src/utils.common/utils.format-time.common/utils.get.time.database";
 import { ResponseData } from "src/utils.common/utils.response.common/utils.response.common";
+import { StoreProcedureOutputResultInterface } from "src/utils.common/utils.store-procedure-result.common/utils.store-procedure-output-result.interface.common";
 import { AdminAdvertisingRevenueDetailQueryDTO } from "./admin-advertising-revenue-detail.dto/admin-advertising-revenue-detail.query.dto";
 import { AdminAdvertisingRevenueDetailDataModelEntity } from "./admin-advertising-revenue-detail.entity/admin-advertising-revenue-detail.entity";
+import { AdminAdvertisingRevenueDetailOutputEntity } from "./admin-advertising-revenue-detail.entity/admin-advertising-revenue-detail.output.entity";
 import { AdminAdvertisingRevenueDetailResponse } from "./admin-advertising-revenue-detail.response/admin-advertising-revenue-detail.response";
 import { AdminAdvertisingRevenueDetailService } from "./admin-advertising-revenue-detail.service";
+import { Pagination } from "./../../utils.common/utils.pagination.pagination/utils.pagination.common";
 
 @Controller("/api/admin-advertising-revenue-detail")
 export class AdminAdvertisingRevenueDetailController {
@@ -32,41 +33,30 @@ export class AdminAdvertisingRevenueDetailController {
     @Res() res: Response
   ): Promise<any> {
     let response: ResponseData = new ResponseData();
-    let fromDate = "";
-    let toDate = "";
-    let groupByType = 2;
 
-    if (
-      adminAdvertisingRevenueDetailQueryDTO.from_date == "" ||
-      adminAdvertisingRevenueDetailQueryDTO.to_date == ""
-    ) {
-      let reportTime: GetTimeDataBase = new StoreProcedureGetTimeDatabase(
-        adminAdvertisingRevenueDetailQueryDTO.report_type
-      ).getTimeReport();
-      fromDate = reportTime.from_date;
-      toDate = reportTime.to_date;
-      groupByType = reportTime.group_type;
-    } else {
-      
-      fromDate = UtilsDate.formatDateInsertDatabase(
-        adminAdvertisingRevenueDetailQueryDTO.from_date
-      );
-      toDate = UtilsDate.formatDateInsertDatabase(
-        adminAdvertisingRevenueDetailQueryDTO.to_date
-      );
-    }
+    let page: Pagination = new Pagination(
+      adminAdvertisingRevenueDetailQueryDTO.page,
+      adminAdvertisingRevenueDetailQueryDTO.limit
+    );
 
-    let result: AdminAdvertisingRevenueDetailDataModelEntity[] =
-      await this.adminAdvertisingRevenueDetailService.spGRpAdminAdvertisingRevenueDetail(
-        adminAdvertisingRevenueDetailQueryDTO.branch_id,
-        groupByType,
-        fromDate,
-        toDate,
-        adminAdvertisingRevenueDetailQueryDTO._offset,
-        adminAdvertisingRevenueDetailQueryDTO._limit
-      );
+    let reportTime: GetTimeDataBase = new StoreProcedureGetTimeDatabase(
+      adminAdvertisingRevenueDetailQueryDTO.report_type,
+      adminAdvertisingRevenueDetailQueryDTO.from_date
+    ).getTimeReport();
+
+    let result: StoreProcedureOutputResultInterface<
+      AdminAdvertisingRevenueDetailDataModelEntity,
+      any
+    > = await this.adminAdvertisingRevenueDetailService.spGRpAdminAdvertisingRevenueDetail(
+      adminAdvertisingRevenueDetailQueryDTO.branch_id,
+      reportTime.group_type,
+      reportTime.from_date,
+      reportTime.to_date,
+      page.getOffset(),
+      page.getLimit()
+    );
     response.setData(
-      new AdminAdvertisingRevenueDetailResponse().mapToList(result)
+      new AdminAdvertisingRevenueDetailResponse(result.list, result.output)
     );
     return res.status(HttpStatus.OK).send(response);
   }

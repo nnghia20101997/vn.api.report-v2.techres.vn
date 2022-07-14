@@ -8,7 +8,10 @@ import {
   ValidationPipe,
 } from "@nestjs/common";
 import { Response } from "express";
+import { StoreProcedureGetTimeDatabase } from "src/utils.common/utils.format-time.common/utils.format-store-procdure.get.time.database";
 import { UtilsDate } from "src/utils.common/utils.format-time.common/utils.format-time.common";
+import { GetTimeDataBase } from "src/utils.common/utils.format-time.common/utils.get.time.database";
+import { Pagination } from "src/utils.common/utils.pagination.pagination/utils.pagination.common";
 import { ResponseData } from "src/utils.common/utils.response.common/utils.response.common";
 import { StoreProcedureOutputResultInterface } from "src/utils.common/utils.store-procedure-result.common/utils.store-procedure-output-result.interface.common";
 import { SupplierTotalDebtAndDebitListAndPublicCollectionDataModelEntity } from "./supplier-total-debt-and-debit-list-and-public-collection.entity/supplier-total-debt-and-debit-list-and-public-collection.data.model.entity";
@@ -31,6 +34,11 @@ export class SupplierTotalDebtAndDebitListAndPublicCollectionController {
   ): Promise<any> {
     let response: ResponseData = new ResponseData();
 
+    let page: Pagination = new Pagination(
+      supplierTotalDebtAndDebitListAndPublicCollectionQueryDTO.page,
+      supplierTotalDebtAndDebitListAndPublicCollectionQueryDTO.limit
+    );
+
     let result: StoreProcedureOutputResultInterface<
       SupplierTotalDebtAndDebitListAndPublicCollectionDataModelEntity,
       any
@@ -44,8 +52,8 @@ export class SupplierTotalDebtAndDebitListAndPublicCollectionController {
       ),
       supplierTotalDebtAndDebitListAndPublicCollectionQueryDTO.key_search,
       supplierTotalDebtAndDebitListAndPublicCollectionQueryDTO.debt_type,
-      supplierTotalDebtAndDebitListAndPublicCollectionQueryDTO.offset,
-      supplierTotalDebtAndDebitListAndPublicCollectionQueryDTO.limit
+      page.getOffset(),
+      page.getLimit()
     );
     response.setData(
       new SupplierTotalDebtAndDebitListAndPublicCollectionResponse(

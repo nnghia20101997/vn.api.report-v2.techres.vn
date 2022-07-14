@@ -26,7 +26,6 @@ export class AdminTopTenProductBestSellerDetailController {
     @Res() res: Response
   ): Promise<any> {
     let response: ResponseData = new ResponseData();
-    console.log(adminBranchReportQueryDTO.status);
     
     let result: StoreProcedureOutputResultInterface<
     AdminBranchReportDataModelEntity,

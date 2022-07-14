@@ -32,40 +32,17 @@ export class AdminAdvertisingRevenueController {
     @Res() res: Response
   ): Promise<any> {
     let response: ResponseData = new ResponseData();
-    let fromDate = "";
-    let toDate = "";
-    let groupByType = 2;
-    if (
-      adminAdvertisingRevenueQueryDTO.from_date == "" ||
-      adminAdvertisingRevenueQueryDTO.to_date == ""
-    ) {
-      let reportTime: GetTimeDataBase = new StoreProcedureGetTimeDatabase(
-        adminAdvertisingRevenueQueryDTO.report_type,adminAdvertisingRevenueQueryDTO.from_date
-      ).getTimeReport();
-      fromDate = reportTime.from_date;
-      toDate = reportTime.to_date;
-      groupByType = reportTime.group_type;
 
-      console.log(reportTime);
-      
-    } else {
-      fromDate = UtilsDate.formatDateInsertDatabase(
-        adminAdvertisingRevenueQueryDTO.from_date
-      );
-      toDate = UtilsDate.formatDateInsertDatabase(
-        adminAdvertisingRevenueQueryDTO.to_date
-      );
-    }
-
-    let time = new StoreProcedureGetTimeDatabase(
-      adminAdvertisingRevenueQueryDTO.report_type
-    ).getTimeType();
+    let reportTime: GetTimeDataBase = new StoreProcedureGetTimeDatabase(
+      adminAdvertisingRevenueQueryDTO.report_type,
+      adminAdvertisingRevenueQueryDTO.from_date
+    ).getTimeReport();
 
     let adminAdvertisingRevenue: AdminAdvertisingRevenueEntity[] =
       await this.adminAdvertisingRevenueService.spGRpAdminAdvertisingRevenue(
-        fromDate,
-        toDate,
-        groupByType
+        reportTime.from_date,
+        reportTime.to_date,
+        reportTime.group_type
       );
     response.setData(
       new AdminAdvertisingRevenueResponse().mapToList(adminAdvertisingRevenue)
@@ -74,3 +51,4 @@ export class AdminAdvertisingRevenueController {
     return res.status(HttpStatus.OK).send(response);
   }
 }
+  

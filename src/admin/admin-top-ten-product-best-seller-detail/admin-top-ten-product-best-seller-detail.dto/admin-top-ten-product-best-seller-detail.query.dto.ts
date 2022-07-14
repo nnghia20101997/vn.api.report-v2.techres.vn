@@ -9,7 +9,7 @@ export class AdminTopTenProductBestSellerDetailQueryDTO {
   @IsNotEmptyString()
   readonly to_date: string = "";
   @IsNotEmpty()
-  readonly _offset: number = 0;
+  readonly page: number = 1;
   @IsNotEmpty()
-  readonly _limit: number = 500;
+  readonly limit: number = 500;
 }
