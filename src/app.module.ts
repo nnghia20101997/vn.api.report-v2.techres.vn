@@ -34,6 +34,25 @@ import { SupplierTotalDebtAndDebitListAndPublicCollectionModule } from "./suppli
 import { SupplierOrderTotalOrderByTimeModule } from "./supplier/supplier-order-total-order-by-time/supplier-order-total-order-by-time.module";
 import { SupplierCategoryDetailModule } from "./supplier/supplier-category-detail/supplier-category-detail.module";
 
+import { TmsRestaurantRevenueReportModule } from "./tms/tms-restaurant-revenue-report/tms-restaurant-revenue-report.module";
+import { TmsCustomerReportModule } from "./tms/tms-customer-report/tms-customer-report.module";
+import { TmsRestaurantCostReportModule } from "./tms/tms-restaurant-cost-report/tms-restaurant-cost-report.module";
+import { TmsRestaurantBusinessGrowthModule, TmsRestaurantBusinessGrowthModule } from "./tms/tms-restaurant-business-growth/tms-restaurant-business-growth.module";
+import { TmsRestaurantRevenueCostProfitModule } from "./tms/tms-restaurant-revenue-cost-profit/tms-restaurant-revenue-cost-profit.module";
+import { TmsRestaurantResultBusinessAndProfitModule } from "./tms/tms-restaurant-result-business-and-profit/tms-restaurant-result-business-and-profit.module";
+import { TmsRestaurantDebtReportModule } from "./tms/tms-restaurant-debt-report/tms-restaurant-debt-report.module";
+import { TmsRestaurantRevenueByAreaReportModule } from "./tms/tms-restaurant-revenue-by-area-report/tms-restaurant-revenue-by-area-report.module";
+import { TmsRestaurantOrderExtraChargeModule } from "./tms/tms-restaurant-order-extra-charge/tms-restaurant-order-extra-charge.module";
+import { TmsRestaurantRevenueByFoodModule } from "./tms/tms-restaurant-revenue-by-food/tms-restaurant-revenue-by-food.module";
+import { TmsRestaurantSummaryFoodRevenueByTimeModule } from "./tms/tms-restaurant-summary-food-revenue-by-time/tms-restaurant-summary-food-revenue-by-time.module";
+import { TmsRestaurantRevenueByCategoryModule } from "./tms/tms-restaurant-revenue-by-category/tms-restaurant-revenue-by-category.module";
+import { TmsRestaurantRevenueByEemployeeModule } from "./tms/tms-restaurant-revenue-by-employee/tms-restaurant-revenue-by-employee.module";
+import { TmsRestaurantDiscountFromOrderModule } from "./tms/tms-restaurant-discount-from-order/tms-restaurant-discount-from-order.module";
+import { TmsRestaurantRevenueDetailByRestaurantBrandModule } from "./tms/tms-restaurant-revenue-detail-by-restaurant-brand/tms-restaurant-revenue-detail-by-restaurant-brand.module";
+import { TmsRestaurantRevenueByBranchModule } from "./tms/tms-restaurant-revenue-by-branch/tms-restaurant-revenue-by-branch.module";
+import { TmsRestaurantRevenueCostCustomerByRestaurantBrandModule } from "./tms/tms-restaurant-revenue-cost-customer-by-restaurant-brand/tms-restaurant-revenue-cost-customer-by-restaurant-brand.module";
+import { TmsRestaurantTotalRevenueFoodByInventoryModule } from "./tms/tms-restaurant-total-revenue-food-by-inventory/tms-restaurant-total-revenue-food-by-inventory.module";
+import { TmsRestaurantDetailFoodModule } from "./tms/tms-restaurant-detail-food/tms-restaurant-detail-food.module";
 
 @Module({
   imports: [
@@ -85,7 +104,27 @@ import { SupplierCategoryDetailModule } from "./supplier/supplier-category-detai
     AdminAdvertisingRevenueDetailModule,
     SupplierTotalDebtAndDebitListAndPublicCollectionModule,
     SupplierOrderTotalOrderByTimeModule,
-    SupplierCategoryDetailModule
+    SupplierCategoryDetailModule,
+    
+    TmsCustomerReportModule,
+    TmsRestaurantRevenueReportModule,
+    TmsRestaurantCostReportModule,
+    TmsRestaurantBusinessGrowthModule,
+    TmsRestaurantRevenueCostProfitModule,
+    TmsRestaurantResultBusinessAndProfitModule,
+    TmsRestaurantDebtReportModule,
+    TmsRestaurantRevenueByAreaReportModule,
+    TmsRestaurantOrderExtraChargeModule,
+    TmsRestaurantRevenueByFoodModule,
+    TmsRestaurantSummaryFoodRevenueByTimeModule,
+    TmsRestaurantRevenueByCategoryModule,
+    TmsRestaurantRevenueByEemployeeModule,
+    TmsRestaurantDiscountFromOrderModule,
+    TmsRestaurantRevenueDetailByRestaurantBrandModule,
+    TmsRestaurantRevenueByBranchModule,
+    TmsRestaurantRevenueCostCustomerByRestaurantBrandModule,
+    TmsRestaurantTotalRevenueFoodByInventoryModule,
+    TmsRestaurantDetailFoodModule
 
   ],
   providers: [],
