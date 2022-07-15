@@ -37,7 +37,7 @@ import { SupplierCategoryDetailModule } from "./supplier/supplier-category-detai
 import { TmsRestaurantRevenueReportModule } from "./tms/tms-restaurant-revenue-report/tms-restaurant-revenue-report.module";
 import { TmsCustomerReportModule } from "./tms/tms-customer-report/tms-customer-report.module";
 import { TmsRestaurantCostReportModule } from "./tms/tms-restaurant-cost-report/tms-restaurant-cost-report.module";
-import { TmsRestaurantBusinessGrowthModule, TmsRestaurantBusinessGrowthModule } from "./tms/tms-restaurant-business-growth/tms-restaurant-business-growth.module";
+import { TmsRestaurantBusinessGrowthModule } from "./tms/tms-restaurant-business-growth/tms-restaurant-business-growth.module";
 import { TmsRestaurantRevenueCostProfitModule } from "./tms/tms-restaurant-revenue-cost-profit/tms-restaurant-revenue-cost-profit.module";
 import { TmsRestaurantResultBusinessAndProfitModule } from "./tms/tms-restaurant-result-business-and-profit/tms-restaurant-result-business-and-profit.module";
 import { TmsRestaurantDebtReportModule } from "./tms/tms-restaurant-debt-report/tms-restaurant-debt-report.module";
@@ -53,6 +53,7 @@ import { TmsRestaurantRevenueByBranchModule } from "./tms/tms-restaurant-revenue
 import { TmsRestaurantRevenueCostCustomerByRestaurantBrandModule } from "./tms/tms-restaurant-revenue-cost-customer-by-restaurant-brand/tms-restaurant-revenue-cost-customer-by-restaurant-brand.module";
 import { TmsRestaurantTotalRevenueFoodByInventoryModule } from "./tms/tms-restaurant-total-revenue-food-by-inventory/tms-restaurant-total-revenue-food-by-inventory.module";
 import { TmsRestaurantDetailFoodModule } from "./tms/tms-restaurant-detail-food/tms-restaurant-detail-food.module";
+
 
 @Module({
   imports: [
