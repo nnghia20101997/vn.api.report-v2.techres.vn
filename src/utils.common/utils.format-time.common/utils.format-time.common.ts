@@ -8,6 +8,10 @@ export class UtilsDate {
         return moment(date).format('DD/MM/YYYY h:mm');
     }
 
+    static formatDateTimeVNToStringNoTime(date: Date): string {
+        return moment(date).format('DD/MM/YYYY');
+    }
+
     static formatDateVNToString(date: Date): string {
         return moment(date).format('DD/MM/YYYY');
     }
