@@ -13,6 +13,7 @@ import { SupplierOverviewReportEntity } from "./supplier-overview-report.entity/
 import { SupplierOverviewReportResponse } from "./supplier-overview-report.response/supplier-overview-report.response";
 import { SupplierOverviewReportService } from "./supplier-overview-report.service";
 import { SupplierOverviewReportQueryDto } from "./supplier-overview-report.dto/supplier-overview-report.query.dto";
+import { UtilsDate } from "src/utils.common/utils.format-time.common/utils.format-time.common";
 
 @Controller("api/supplier-overview-report")
 export class SupplierOverviewReportController {
@@ -33,8 +34,8 @@ export class SupplierOverviewReportController {
         supplierOverviewReportQueryDto.supplier_id,
         supplierOverviewReportQueryDto.restaurant_id,
         supplierOverviewReportQueryDto.branch_id,
-        supplierOverviewReportQueryDto.from_date,
-        supplierOverviewReportQueryDto.to_date
+        UtilsDate.formatDateInsertDatabase(supplierOverviewReportQueryDto.from_date),
+        UtilsDate.formatDateInsertDatabase(supplierOverviewReportQueryDto.to_date)
       );
 
     response.setData(

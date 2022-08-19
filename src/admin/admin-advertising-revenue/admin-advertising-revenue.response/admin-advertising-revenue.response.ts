@@ -4,14 +4,14 @@ export class AdminAdvertisingRevenueResponse {
 
     report_time: string;
 
-    total_price: number;
+    total_revenue: number;
 
 	constructor(adminAdvertisingRevenueEntity?: AdminAdvertisingRevenueEntity){
         this.report_time = adminAdvertisingRevenueEntity
         ? adminAdvertisingRevenueEntity.report_time
         : "";
-      this.total_price = adminAdvertisingRevenueEntity
-        ? +adminAdvertisingRevenueEntity.total_price
+      this.total_revenue = adminAdvertisingRevenueEntity
+        ? +adminAdvertisingRevenueEntity.total_revenue
         : 0;
     }
 

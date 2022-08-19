@@ -10,7 +10,7 @@ export class SupplierOverviewReportService {
   constructor(
     @InjectRepository(SupplierOverviewReportEntity)
     private salePost: Repository<SupplierOverviewReportEntity>
-  ) {}
+  ) { }
 
   /**
    *

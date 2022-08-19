@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryColumn } from "typeorm";
 @Entity()
 export class AdminAdvertisingRevenueDetailDataModelEntity {
   @PrimaryColumn()
-  total_price: number;
+  total_revenue: number;
 
   @Column({ default: "" })
   report_time: string;

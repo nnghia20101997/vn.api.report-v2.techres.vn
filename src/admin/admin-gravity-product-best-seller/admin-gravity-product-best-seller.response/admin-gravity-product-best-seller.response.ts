@@ -1,31 +1,22 @@
 import { AdminGravityProductBestSellerDataModelEntity } from "../admin-gravity-product-best-seller.entity/admin-gravity-product-best-seller.entity";
+import { AdminGravityProductBestSellerOutputEntity } from "../admin-gravity-product-best-seller.entity/admin-gravity-product-best-seller.output.entity";
+import { AdminGravityProductBestSellerDataModelResponse } from "./admin-gravity-product-best-seller.data.model.response";
 
 export class AdminGravityProductBestSellerResponse {
-  product_id: number;
+  list_data: AdminGravityProductBestSellerDataModelResponse[];
 
-  product_name: string;
-
-  sales_ratio: number;
+  total_record: number;
 
   constructor(
-    adminGravityProductBestSellerDataModelEntity?: AdminGravityProductBestSellerDataModelEntity
+    adminGravityProductBestSellerDataModelEntity?: AdminGravityProductBestSellerDataModelEntity[],
+    adminGravityProductBestSellerOutputEntity?: AdminGravityProductBestSellerOutputEntity
   ) {
-    this.product_id = adminGravityProductBestSellerDataModelEntity
-      ? +adminGravityProductBestSellerDataModelEntity.product_id
+    this.list_data =
+      new AdminGravityProductBestSellerDataModelResponse().mapToList(
+        adminGravityProductBestSellerDataModelEntity
+      );
+    this.total_record = adminGravityProductBestSellerOutputEntity
+      ? +adminGravityProductBestSellerOutputEntity.total_record
       : 0;
-    this.product_name = adminGravityProductBestSellerDataModelEntity
-      ? adminGravityProductBestSellerDataModelEntity.product_name
-      : "";
-    this.sales_ratio = adminGravityProductBestSellerDataModelEntity
-      ? +adminGravityProductBestSellerDataModelEntity.sales_ratio
-      : 0;
-  }
-
-  public mapToList(data: AdminGravityProductBestSellerDataModelEntity[]) {
-    let response: AdminGravityProductBestSellerResponse[] = [];
-    data.forEach((e) => {
-      response.push(new AdminGravityProductBestSellerResponse(e));
-    });
-    return response;
   }
 }

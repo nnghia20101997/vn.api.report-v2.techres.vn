@@ -9,7 +9,7 @@ export class SupplierTotalDebtAndDebitListAndPublicCollectionQueryDTO{
 
     readonly debt_type: number = -1;
 
-    readonly offset: number = -1;
+    readonly page: number = 1;
 
-    readonly limit: number = -1;
+    readonly limit: number = 100;
 }

@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 @Entity()
-export class AdminBranchReporDataModelEntity {
+export class AdminBranchReportDataModelEntity {
     @PrimaryColumn()
     id: number;
 

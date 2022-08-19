@@ -8,7 +8,7 @@ export class AdminAdvertisingRevenueDetailQueryDTO{
 
     readonly to_date: string = "";
 
-    readonly _offset: number = -1;
+    readonly page: number = 1;
 
-    readonly _limit: number = -1;
+    readonly limit: number = 100;
 }

@@ -7,6 +7,7 @@ import {
   UsePipes,
   ValidationPipe,
 } from "@nestjs/common";
+
 import { ResponseData } from "src/utils.common/utils.response.common/utils.response.common";
 import { Response } from "express";
 import { AdminAdvertisingRevenueQueryDTO } from "./admin-advertising-revenue.dto/admin-advertising-revenue.query.dto";
@@ -14,6 +15,9 @@ import { AdminAdvertisingRevenueEntity } from "./admin-advertising-revenue.entit
 import { AdminAdvertisingRevenueResponse } from "./admin-advertising-revenue.response/admin-advertising-revenue.response";
 import { AdminAdvertisingRevenueService } from "./admin-advertising-revenue.service";
 import { StoreProcedureGetTimeDatabase } from "src/utils.common/utils.format-time.common/utils.format-store-procdure.get.time.database";
+import { GetTimeDataBase } from "src/utils.common/utils.format-time.common/utils.get.time.database";
+import { UtilsDate } from "src/utils.common/utils.format-time.common/utils.format-time.common";
+import console from "console";
 
 @Controller("/api/admin-advertising-revenue")
 export class AdminAdvertisingRevenueController {
@@ -29,21 +33,22 @@ export class AdminAdvertisingRevenueController {
   ): Promise<any> {
     let response: ResponseData = new ResponseData();
 
-    let time = new StoreProcedureGetTimeDatabase(
-      adminAdvertisingRevenueQueryDTO.report_type
-    ).getTimeType();
+    let reportTime: GetTimeDataBase = new StoreProcedureGetTimeDatabase(
+      adminAdvertisingRevenueQueryDTO.report_type,
+      adminAdvertisingRevenueQueryDTO.from_date
+    ).getTimeReport();
 
-    console.log("time", time.from_date, time.to_date, time.group_type);
-    
     let adminAdvertisingRevenue: AdminAdvertisingRevenueEntity[] =
       await this.adminAdvertisingRevenueService.spGRpAdminAdvertisingRevenue(
-        time.from_date,
-        time.to_date,
-        time.group_type
+        reportTime.from_date,
+        reportTime.to_date,
+        reportTime.group_type
       );
     response.setData(
       new AdminAdvertisingRevenueResponse().mapToList(adminAdvertisingRevenue)
     );
+
     return res.status(HttpStatus.OK).send(response);
   }
 }
+  

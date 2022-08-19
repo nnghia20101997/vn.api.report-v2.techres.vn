@@ -41,7 +41,7 @@ export class SupplierTotalDebtAndDebitListAndPublicCollectionService {
   > {
     let result =
       await this.supplierTotalDebtAndDebitListAndPublicCollectionDataModelEntity.query(
-        "CALL sp_g_rp_supplier_total_debt_and_debit_list_and_public_collection(?,?,?,?,?,?,?,@total_to_pay_debt_amount, @total_receivable_debt_amount, @status, @message); SELECT @total_to_pay_debt_amount AS total_to_pay_debt_amount , @total_receivable_debt_amount AS total_receivable_debt_amount , @status AS status_code , @message AS message_error",
+        "CALL sp_g_rp_supplier_total_debt_and_debit_list_and_public_collection(?,?,?,?,?,?,?,@total_record,@total_to_pay_debt_amount, @total_receivable_debt_amount, @status, @message); SELECT @total_record AS total_record,@total_to_pay_debt_amount AS total_to_pay_debt_amount , @total_receivable_debt_amount AS total_receivable_debt_amount , @status AS status_code , @message AS message_error",
         [supplierId, fromDate, toDate, keySearch, debtType, _offset, _limit]
       );
       ExceptionStoreProcedure.validate(result);

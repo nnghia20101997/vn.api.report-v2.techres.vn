@@ -1,8 +1,10 @@
-export class AdminAdvertisingRevenueQueryDTO{
-    
-    readonly report_type: number = -1;
 
-    readonly from_date: string = "";
 
-    readonly to_date: string = "";
+export class AdminAdvertisingRevenueQueryDTO {
+  
+  readonly report_type: number = 3;
+
+  readonly from_date: string = "";
+
+  readonly to_date: string = "";
 }

@@ -15,5 +15,5 @@ export class AdminTotalRevenueProductsDataModelEntity{
     total_product:number;
 
     @Column({default: 0})
-    total_amount:number;
+    total_revenue:number;
 }

@@ -1,31 +1,22 @@
 import { AdminAdvertisingRevenueDetailDataModelEntity } from "../admin-advertising-revenue-detail.entity/admin-advertising-revenue-detail.entity";
+import { AdminAdvertisingRevenueDetailOutputEntity } from "../admin-advertising-revenue-detail.entity/admin-advertising-revenue-detail.output.entity";
+import { AdminAdvertisingRevenueDetailDataModelResponse } from "./admin-advertising-revenue-detail.data.model.response";
 
 export class AdminAdvertisingRevenueDetailResponse {
-  total_price: number;
+  list_data: AdminAdvertisingRevenueDetailDataModelResponse[];
 
-  report_time: string;
-
-  media_length_by_second: number;
+  total_record: number;
 
   constructor(
-    adminAdvertisingRevenueDetailDataModelEntity?: AdminAdvertisingRevenueDetailDataModelEntity
+    adminAdvertisingRevenueDetailDataModelEntity?: AdminAdvertisingRevenueDetailDataModelEntity[],
+    adminAdvertisingRevenueDetailOutputEntity?: AdminAdvertisingRevenueDetailOutputEntity
   ) {
-    this.total_price = adminAdvertisingRevenueDetailDataModelEntity
-      ? +adminAdvertisingRevenueDetailDataModelEntity.total_price
+    this.list_data =
+      new AdminAdvertisingRevenueDetailDataModelResponse().mapToList(
+        adminAdvertisingRevenueDetailDataModelEntity
+      );
+    this.total_record = adminAdvertisingRevenueDetailOutputEntity
+      ? +adminAdvertisingRevenueDetailOutputEntity.total_record
       : 0;
-    this.report_time = adminAdvertisingRevenueDetailDataModelEntity
-      ? adminAdvertisingRevenueDetailDataModelEntity.report_time
-      : "";
-    this.media_length_by_second = adminAdvertisingRevenueDetailDataModelEntity
-      ? +adminAdvertisingRevenueDetailDataModelEntity.media_length_by_second
-      : 0;
-  }
-
-  public mapToList(data: AdminAdvertisingRevenueDetailDataModelEntity[]) {
-    let response: AdminAdvertisingRevenueDetailResponse[] = [];
-    data.forEach((e) => {
-      response.push(new AdminAdvertisingRevenueDetailResponse(e));
-    });
-    return response;
   }
 }
